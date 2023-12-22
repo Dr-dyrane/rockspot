@@ -10,7 +10,7 @@ const App = () => {
 		<Router>
 			<div className="bg-slate-200 min-h-screen flex flex-col">
 				<Navbar />
-				<div className="flex-1 justify-center items-center text-indigo-700 font-bold text-center overflow-scroll">
+				<div className="flex-1 justify-center items-center text-indigo-700 font-bold text-center">
 					<AppRoutes />
 				</div>
 				<Footer />
