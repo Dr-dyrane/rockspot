@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 
 const Navbar = () => {
 	const [isMenuOpen, setMenuOpen] = useState(false);
@@ -16,6 +17,20 @@ const Navbar = () => {
 			setUserOpen(!isUserOpen);
 		}
 	};
+
+	const menuItems = [
+		{ to: "/", label: "Home" },
+		{ to: "/menu", label: "Menu" },
+		{ to: "/services", label: "Services" },
+		{ to: "/contact", label: "Contact" },
+	];
+
+	const userDropdownItems = [
+		{ to: "/dashboard", label: "Dashboard" },
+		{ to: "/settings", label: "Settings" },
+		{ to: "/earnings", label: "Earnings" },
+		{ to: "/sign-out", label: "Sign out" },
+	];
 
 	return (
 		<nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -53,7 +68,7 @@ const Navbar = () => {
 								<div
 									className={`z-50 ${
 										isUserOpen ? "" : "hidden"
-									} absolute my-4 right-0 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
+									} absolute my-4 right-2 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
 									id="user-dropdown"
 								>
 									<div className="px-4 py-3">
@@ -65,48 +80,28 @@ const Navbar = () => {
 										</span>
 									</div>
 									<ul className="py-2" aria-labelledby="user-menu-button">
-										<li>
-											<Link
-												to="/dashboard"
-												className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-											>
-												Dashboard
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="/settings"
-												className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-											>
-												Settings
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="/earnings"
-												className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-											>
-												Earnings
-											</Link>
-										</li>
-										<li>
-											<Link
-												to="/sign-out"
-												className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-											>
-												Sign out
-											</Link>
-										</li>
+										{userDropdownItems.map((item) => (
+											<li key={item.to}>
+												<Link
+													to={item.to}
+													className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+												>
+													{item.label}
+												</Link>
+											</li>
+										))}
 									</ul>
 								</div>
 							</>
 						) : (
-							<button
-								type="button"
-								className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-							>
-								Get started
-							</button>
+							<Link to="/login">
+								<button
+									type="button"
+									className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+								>
+									Get started
+								</button>
+							</Link>
 						)}
 					</div>
 					<button
@@ -160,43 +155,9 @@ const Navbar = () => {
 					id="navbar-cta"
 				>
 					<ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-						<li>
-							<Link
-								to="/"
-								className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-								onClick={() => setMenuOpen(false)}
-								aria-current="page"
-							>
-								Home
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/menu"
-								className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-								onClick={() => setMenuOpen(false)}
-							>
-								Menu
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/services"
-								className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 d:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-								onClick={() => setMenuOpen(false)}
-							>
-								Services
-							</Link>
-						</li>
-						<li>
-							<Link
-								to="/contact"
-								className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-								onClick={() => setMenuOpen(false)}
-							>
-								Contact
-							</Link>
-						</li>
+						{menuItems.map((item) => (
+							<Menu key={item.to} to={item.to} label={item.label} />
+						))}
 					</ul>
 				</div>
 			</div>
