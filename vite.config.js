@@ -12,7 +12,7 @@ export default defineConfig({
 				short_name: "rockspot",
 				description: "Gateway to flavorful bites and effortless orders",
         start_url: '/',
-				theme_color: "#4338CA",
+				theme_color: "#0f172a",
 				background_color: "#E2E8F0",
         display: 'standalone',
         icons: [

@@ -33,15 +33,15 @@ const Navbar = () => {
 	];
 
 	return (
-		<nav className="bg-white border-gray-200 dark:bg-gray-900">
+		<nav className="bg-white border-slate-200 dark:bg-slate-900">
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 				<Link
 					to="/"
 					className="flex items-center space-x-3 rtl:space-x-reverse"
 				>
-					<img src="/logo_i.png" className="h-8 rounded" alt="Rockspot Logo" />
+					<img src="/logo_i.png" className="h-8 rounded-full bg-indigo-700 p-[1px]" alt="Rockspot Logo" />
 					<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-						Rockspot
+						Rockspot™
 					</span>
 				</Link>
 				<div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -49,7 +49,7 @@ const Navbar = () => {
 						{isLoggedIn ? (
 							<>
 								<button
-									className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+									className="flex text-sm bg-slate-800 rounded-full md:me-0 focus:ring-4 focus:ring-slate-300 dark:focus:ring-slate-600"
 									type="button"
 									id="user-menu-button"
 									aria-expanded={isUserOpen}
@@ -68,14 +68,14 @@ const Navbar = () => {
 								<div
 									className={`z-50 ${
 										isUserOpen ? "" : "hidden"
-									} absolute my-4 right-2 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
+									} absolute my-4 right-2 text-base list-none bg-white divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 dark:divide-slate-600`}
 									id="user-dropdown"
 								>
 									<div className="px-4 py-3">
-										<span className="block text-sm text-gray-900 dark:text-white">
+										<span className="block text-sm text-slate-900 dark:text-white">
 											Bonnie Green
 										</span>
-										<span className="block text-sm text-gray-500 truncate dark:text-gray-400">
+										<span className="block text-sm text-slate-500 truncate dark:text-slate-400">
 											name@flowbite.com
 										</span>
 									</div>
@@ -84,7 +84,7 @@ const Navbar = () => {
 											<li key={item.to}>
 												<Link
 													to={item.to}
-													className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+													className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 dark:text-slate-200 dark:hover:text-white"
 												>
 													{item.label}
 												</Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
 							<Link to="/login">
 								<button
 									type="button"
-									className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+									className="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
 								>
 									Get started
 								</button>
@@ -107,7 +107,7 @@ const Navbar = () => {
 					<button
 						data-collapse-toggle="navbar-cta"
 						type="button"
-						className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+						className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 rounded-lg md:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-slate-700 dark:focus:ring-slate-600"
 						aria-controls="navbar-cta"
 						aria-expanded="false"
 						onClick={toggleMenu}
@@ -154,7 +154,7 @@ const Navbar = () => {
 					}`}
 					id="navbar-cta"
 				>
-					<ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+					<ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-slate-800 md:dark:bg-slate-900 dark:border-slate-700">
 						{menuItems.map((item) => (
 							<Menu key={item.to} to={item.to} label={item.label} />
 						))}
