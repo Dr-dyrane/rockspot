@@ -8,7 +8,7 @@ const Navbar = () => {
 
 	const toggleMenu = () => {
 		setMenuOpen(!isMenuOpen);
-        setUserOpen(false);
+		setUserOpen(false);
 	};
 
 	const toggleUserDropdown = () => {
@@ -36,7 +36,7 @@ const Navbar = () => {
 								<button
 									className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
 									type="button"
-                                    id="user-menu-button"
+									id="user-menu-button"
 									aria-expanded={isUserOpen}
 									data-dropdown-toggle="user-dropdown"
 									data-dropdown-placement="bottom"
