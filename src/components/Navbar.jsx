@@ -39,7 +39,7 @@ const Navbar = () => {
 					to="/"
 					className="flex items-center space-x-3 rtl:space-x-reverse"
 				>
-					<img src="/logo.svg" className="h-8 rounded" alt="Rockspot Logo" />
+					<img src="/logo_i.png" className="h-8 rounded" alt="Rockspot Logo" />
 					<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
 						Rockspot
 					</span>
