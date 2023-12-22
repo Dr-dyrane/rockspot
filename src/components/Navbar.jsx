@@ -53,7 +53,7 @@ const Navbar = () => {
 								<div
 									className={`z-50 ${
 										isUserOpen ? "" : "hidden"
-									} my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
+									} absolute my-4 right-0 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600`}
 									id="user-dropdown"
 								>
 									<div className="px-4 py-3">
