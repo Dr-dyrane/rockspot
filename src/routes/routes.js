@@ -1,22 +1,28 @@
 // routes/routes.js
-import Home from "../pages/Home";
+import Home from '../pages/Home';
+import Menu from '../pages/Menu';
 
-// Define a functional component to use the hook
 const RouteConfig = () => {
-	// initiate hooks and pass as props
+  // initiate hooks and pass as props
+  const routes = [
+    {
+      path: '/',
+      element: Home,
+      props: {
+        // Add props if available
+      },
+    },
+    {
+      path: '/menu',
+      element: Menu,
+      props: {
+        // Add props if available
+      },
+    },
+    // Add more routes as needed
+  ];
 
-	const routes = [
-		{
-			path: "/",
-			element: Home,
-			props: {
-				//Add props if available
-			},
-		},
-		// Add more routes as needed
-	];
-
-	return routes;
+  return routes;
 };
 
 export default RouteConfig;
