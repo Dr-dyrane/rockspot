@@ -4,6 +4,7 @@ import Menu from "./Menu";
 import { menuItems, userDropdownItems } from "./navbarData";
 import UserSection from "./UserSection";
 import MenuButton from "./MenuButton";
+import Logo from "../Logo";
 
 const Navbar = () => {
 	const [isMenuOpen, setMenuOpen] = useState(false);
@@ -43,19 +44,7 @@ const Navbar = () => {
 	return (
 		<nav className="bg-white border-slate-200 dark:bg-slate-900">
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-				<Link
-					to="/"
-					className="flex items-center space-x-3 rtl:space-x-reverse"
-				>
-					<img
-						src="/logo_i.png"
-						className="h-8 rounded-full bg-indigo-700 p-[1px]"
-						alt="Rockspot Logo"
-					/>
-					<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-						Rockspot™
-					</span>
-				</Link>
+				<Logo disabled={false} />
 				<div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 					<UserSection
 						isLoggedIn={isLoggedIn}
