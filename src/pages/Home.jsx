@@ -33,7 +33,7 @@ const Home = () => {
 		},
 		{
 			id: 5,
-			name: "Beef",
+			name: "Other Beef",
 			image:
 				"https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 		},
