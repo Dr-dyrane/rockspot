@@ -55,6 +55,21 @@ const categories = [
       image:
         "https://images.pexels.com/photos/6416559/pexels-photo-6416559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
+    {
+        id: 4,
+        name: "Spicy Chicken Shawarma",
+        price: 1500,
+        image:
+          "https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      },
+      {
+        id: 5,
+        name: "Spicy Chicken Shawarma",
+        price: 1500,
+        image:
+          "https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      },
+    // Ad
     // Add more featured shawarmas as needed
   ];
   
