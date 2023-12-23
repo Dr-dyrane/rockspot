@@ -29,7 +29,7 @@ const LocationRow = () => {
 			});
 		};
 		const getCityFromCoords = async (latitude, longitude) => {
-			const apiKey = "24b89cbd9d524ae4ae73fd47f3a64927";
+			const apiKey = import.meta.env.VITE_OPEN_CAGE_API_KEY;
 			const apiUrl = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${latitude}+${longitude}&pretty=1&no_annotations=1`;
 
 			try {
