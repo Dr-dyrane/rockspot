@@ -5,14 +5,30 @@ import CategoryCard from "../components/CategoryCard";
 import LocationRow from "../components/LocationRow";
 import SearchBar from "../components/SearchBar";
 import { categories, featuredShawarmas } from "../data/shawarmaData";
+import Rating from "../components/Rating";
 
 const Home = () => {
+	const rating = 4.95;
+	const reviews = 73;
 	return (
-		<div className="p-4 flex flex-col items-center justify-center">
-			<LocationRow />
+		<div className="p-4 flex flex-col items-center justify-center relative">
+			<div className="w-full text-slate-100 text-start font-semibold text-4xl p-5 bg-hero bg-cover h-60 block sm:hidden justify-center absolute top-0">
+				<p>
+					Shawarma <br />
+					Your Way
+				</p>
 
-			<SearchBar placeholder="Search for Shawarma..." />
+				<div className="flex items-start flex-col mt-5">
+					<div className="flex">
+						<Rating rating={rating} reviews={reviews} />
+					</div>
+				</div>
+			</div>
 
+			<div className="w-full mt-60 sm:mt-0 flex flex-col lg:flex-row space-x-0 lg:space-x-6 ">
+				<LocationRow />
+				<SearchBar placeholder="Search for Shawarma..." />
+			</div>
 			<div className="mt-8">
 				<h2 className="flex text-2xl font-bold mb-4 items-center justify-start">
 					Categories
