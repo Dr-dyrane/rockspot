@@ -71,17 +71,24 @@ const Home = () => {
 
 			<SearchBar placeholder="Search for Shawarma..." />
 
-			<div className="justify-center items-center p-1 grid grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-[8.5rem] mt-8 max-w-sm sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl overflow-x-scroll hide-scroll-bar">
-				{categories.map((category) => (
-					<CategoryCard key={category.id} category={category} />
-				))}
+			<div className="mt-8">
+				<h2 className="text-2xl font-semibold mb-4">Categories</h2>
+				<div className="justify-center items-center p-1 grid grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-[8.5rem] mt-4 max-w-sm sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl overflow-x-scroll hide-scroll-bar">
+					{categories.map((category) => (
+						<CategoryCard key={category.id} category={category} />
+					))}
+				</div>
 			</div>
 
 			<div className="flex flex-col items-center justify-center mt-8">
 				<h2 className="text-2xl font-semibold mb-4">Featured Shawarmas</h2>
 				<div className="flex items-center justify-center space-x-2 p-1 max-w-sm sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto overflow-x-scroll hide-scroll-bar">
 					{featuredShawarmas.map((shawarma) => (
-						<div key={shawarma.id} className="inline-block p-2 h-64">
+						<div
+							key={shawarma.id}
+							className="inline-block p-2 h-64 hover:animate-pulse"
+						>
+							{/* Added 'animate-bounce' for subtle bouncing animation */}
 							<ShawarmaCard shawarma={shawarma} />
 						</div>
 					))}
