@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
 
@@ -7,12 +7,17 @@ const Navbar = () => {
 	const [isLoggedIn, setLoggedIn] = useState(true);
 	const [isUserOpen, setUserOpen] = useState(false);
 
-	const toggleMenu = () => {
+	const menuRef = useRef(null);
+	const userDropdownRef = useRef(null);
+
+	const toggleMenu = (event) => {
+		event.stopPropagation(); // Stop the event from propagating
 		setMenuOpen(!isMenuOpen);
 		setUserOpen(false);
 	};
 
-	const toggleUserDropdown = () => {
+	const toggleUserDropdown = (event) => {
+		event.stopPropagation();
 		if (isLoggedIn) {
 			setUserOpen(!isUserOpen);
 		}
@@ -32,6 +37,20 @@ const Navbar = () => {
 		{ to: "/sign-out", label: "Sign out" },
 	];
 
+	const handleClickOutside = (event) => {
+		if (
+			!menuRef?.current?.contains(event.target) &&
+			!userDropdownRef?.current?.contains(event.target)
+		) {
+			setMenuOpen(false);
+			setUserOpen(false);
+		}
+	};
+
+	useEffect(() => {
+		document.addEventListener("click", handleClickOutside);
+	}, [handleClickOutside]);
+
 	return (
 		<nav className="bg-white border-slate-200 dark:bg-slate-900">
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -39,7 +58,11 @@ const Navbar = () => {
 					to="/"
 					className="flex items-center space-x-3 rtl:space-x-reverse"
 				>
-					<img src="/logo_i.png" className="h-8 rounded-full bg-indigo-700 p-[1px]" alt="Rockspot Logo" />
+					<img
+						src="/logo_i.png"
+						className="h-8 rounded-full bg-indigo-700 p-[1px]"
+						alt="Rockspot Logo"
+					/>
 					<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
 						Rockspot™
 					</span>
@@ -67,9 +90,10 @@ const Navbar = () => {
 								{/* User dropdown menu */}
 								<div
 									className={`z-50 ${
-										isUserOpen ? "" : "hidden"
+										isUserOpen ? "block" : "hidden"
 									} absolute my-4 right-2 text-base list-none bg-white divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 dark:divide-slate-600`}
 									id="user-dropdown"
+									ref={userDropdownRef}
 								>
 									<div className="px-4 py-3">
 										<span className="block text-sm text-slate-900 dark:text-white">
@@ -153,6 +177,7 @@ const Navbar = () => {
 						isMenuOpen ? "block" : "hidden"
 					}`}
 					id="navbar-cta"
+					ref={menuRef}
 				>
 					<ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-slate-800 md:dark:bg-slate-900 dark:border-slate-700">
 						{menuItems.map((item) => (
