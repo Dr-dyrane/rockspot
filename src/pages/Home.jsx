@@ -25,7 +25,7 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div className="w-full mt-60 md:mt-96 lg:mt-0 flex flex-col lg:flex-row space-x-0 lg:space-x-6 ">
+			<div className="w-full mt-60 sm:mt-96 lg:mt-0 flex flex-col lg:flex-row space-x-0 lg:space-x-6 ">
 				<LocationRow />
 				<SearchBar placeholder="Search for Shawarma..." />
 			</div>
