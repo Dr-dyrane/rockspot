@@ -9,12 +9,12 @@ const Rating = ({ rating, reviews }) => {
 
   // Fill the integer part
   for (let i = 0; i < integerPart; i++) {
-    stars.push(<FaStar key={i} size={18} color="yellow" />);
+    stars.push(<FaStar key={i} size={18} color="#FFAE42" />);
   }
 
   // Fill the decimal part
   if (decimalPart > 0) {
-    stars.push(<FaStarHalfAlt key={integerPart} size={18} color="yellow" />);
+    stars.push(<FaStarHalfAlt key={integerPart} size={18} color="#FFAE42" />);
   }
 
   // Add empty stars if needed
