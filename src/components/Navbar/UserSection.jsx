@@ -9,6 +9,8 @@ const UserSection = ({
 	userDropdownRef,
 	userDropdownItems,
 }) => {
+	const imagUrl =
+		"https://images.pexels.com/photos/35065/homeless-man-color-poverty.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 	return (
 		<div>
 			{isLoggedIn ? (
@@ -23,12 +25,11 @@ const UserSection = ({
 						onClick={toggleUserDropdown}
 					>
 						<span className="sr-only">Open user menu</span>
-							<img
-								className="w-8 h-8 rounded-full border border-slate-700"
-								src="https://images.pexels.com/photos/35065/homeless-man-color-poverty.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-								alt="user photo"
-							/>
-
+						<img
+							className="w-8 h-8 rounded-full border border-slate-700"
+							src={imagUrl}
+							alt="user photo"
+						/>
 					</button>
 					{/* User dropdown menu */}
 					<div
