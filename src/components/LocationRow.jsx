@@ -30,7 +30,7 @@ const LocationRow = () => {
 			<div className="flex-1">
 				<div className="flex flex-row font-bold text-md items-center justify-between px-2">
 					<div className="font-bold text-gray-400 text-sm">Deliver Now!</div>
-					<div className="flex flex-row items-center">{userLocation}<FaCaretDown className="ml-1" size={18} color="indigo" /></div>
+					<div className="flex flex-row items-center text-small">{userLocation}<FaCaretDown className="ml-1" size={18} color="indigo" /></div>
 					
 				</div>
 			</div>
