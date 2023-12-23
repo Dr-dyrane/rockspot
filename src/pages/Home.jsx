@@ -4,67 +4,9 @@ import ShawarmaCard from "../components/ShawarmaCard";
 import CategoryCard from "../components/CategoryCard";
 import LocationRow from "../components/LocationRow";
 import SearchBar from "../components/SearchBar";
+import { categories, featuredShawarmas } from "../data/shawarmaData";
 
 const Home = () => {
-	const categories = [
-		{
-			id: 1,
-			name: "Chicken",
-			image:
-				"https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		{
-			id: 2,
-			name: "Beef",
-			image:
-				"https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		{
-			id: 3,
-			name: "Combo",
-			image:
-				"https://images.pexels.com/photos/6416559/pexels-photo-6416559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		{
-			id: 4,
-			name: "Kebab",
-			image:
-				"https://images.pexels.com/photos/6416559/pexels-photo-6416559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		{
-			id: 5,
-			name: "Other Beef",
-			image:
-				"https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		// Add more categories as needed
-	];
-
-	const featuredShawarmas = [
-		{
-			id: 1,
-			name: "Spicy Chicken Shawarma",
-			price: 1500,
-			image:
-				"https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		{
-			id: 2,
-			name: "Classic Beef Shawarma",
-			price: 1500,
-			image:
-				"https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		{
-			id: 3,
-			name: "Chicken Beef Shawarma",
-			price: 2000,
-			image:
-				"https://images.pexels.com/photos/6416559/pexels-photo-6416559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-		},
-		// Add more featured shawarmas as needed
-	];
-
 	return (
 		<div className="p-4 flex flex-col items-center justify-center">
 			<LocationRow />
@@ -73,6 +15,9 @@ const Home = () => {
 
 			<div className="mt-8">
 				<h2 className="text-2xl font-semibold mb-4">Categories</h2>
+				<p className="text-sm mb-4 opacity-80 font-medium italic">
+					Explore a variety of mouth-watering shawarmas in different categories.
+				</p>
 				<div className="justify-center items-center p-1 grid grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-[8.5rem] mt-4 max-w-sm sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl overflow-x-scroll hide-scroll-bar">
 					{categories.map((category) => (
 						<CategoryCard key={category.id} category={category} />
@@ -82,6 +27,10 @@ const Home = () => {
 
 			<div className="flex flex-col items-center justify-center mt-8">
 				<h2 className="text-2xl font-semibold mb-4">Featured Shawarmas</h2>
+				<p className="text-sm opacity-80 mb-4 font-medium italic">
+					Indulge in our signature shawarmas, carefully crafted for a delightful
+					experience.
+				</p>
 				<div className="flex items-center justify-center space-x-2 p-1 max-w-sm sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto overflow-x-scroll hide-scroll-bar">
 					{featuredShawarmas.map((shawarma) => (
 						<div
