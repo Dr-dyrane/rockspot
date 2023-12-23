@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
+import { menuItems, userDropdownItems } from "./navbarData";
 
 const Navbar = () => {
 	const [isMenuOpen, setMenuOpen] = useState(false);
@@ -22,20 +23,6 @@ const Navbar = () => {
 			setUserOpen(!isUserOpen);
 		}
 	};
-
-	const menuItems = [
-		{ to: "/", label: "Home" },
-		{ to: "/menu", label: "Menu" },
-		{ to: "/services", label: "Services" },
-		{ to: "/contact", label: "Contact" },
-	];
-
-	const userDropdownItems = [
-		{ to: "/dashboard", label: "Dashboard" },
-		{ to: "/settings", label: "Settings" },
-		{ to: "/earnings", label: "Earnings" },
-		{ to: "/sign-out", label: "Sign out" },
-	];
 
 	const handleClickOutside = (event) => {
 		if (
