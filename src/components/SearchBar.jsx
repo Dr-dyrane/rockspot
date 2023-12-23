@@ -3,7 +3,7 @@ import { FaSearch, FaFilter } from "react-icons/fa";
 
 const SearchBar = ({ placeholder }) => {
   return (
-    <div className="w-full max-w-md mt-4">
+    <div className="w-full m-4">
       <div className="relative flex items-center">
         <input
           type="text"
