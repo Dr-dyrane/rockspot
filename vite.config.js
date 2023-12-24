@@ -9,7 +9,7 @@ export default defineConfig({
 		VitePWA({
 			manifest: {
 				name: "Rockspot Shawarma",
-				short_name: "rockspot",
+				short_name: "Rockspot",
 				description: "Gateway to flavorful bites and effortless orders",
         start_url: '/',
 				theme_color: "#0f172a",

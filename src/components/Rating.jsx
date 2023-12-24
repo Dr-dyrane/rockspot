@@ -27,13 +27,13 @@ const Rating = ({ rating, reviews }) => {
     <div className="flex items-start flex-col">
       <div className="flex">{stars}</div>
       <div className="flex flex-row items-center justify-center mt-2">
-        <p className="text-sm font-bold text-gray-900 dark:text-white">
+        <p className="text-sm font-bold text-white">
           {rating}
         </p>
-        <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+        <span className="w-1 h-1 mx-1.5 rounded-full bg-gray-400"></span>
         <a
           href="/reviews"
-          className="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white"
+          className="text-sm font-medium  underline hover:no-underline text-white"
         >
           {`${reviews} reviews`}
         </a>
