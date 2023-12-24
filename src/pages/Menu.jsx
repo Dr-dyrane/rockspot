@@ -34,7 +34,7 @@ const Menu = () => {
 				<h2 className="text-2xl font-bold mb-4">Featured Shawarmas</h2>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
 					{featuredShawarmas.map((shawarma) => (
-						<div key={shawarma.id}>
+						<div key={shawarma.id} className="p-1.5">
 							<MenuCard shawarma={shawarma} />
 						</div>
 					))}
