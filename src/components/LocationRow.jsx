@@ -67,7 +67,7 @@ const LocationRow = () => {
 	}, []);
 
 	return (
-		<div className="flex flex-row p-2 items-center space-x-1 bg-slate-300 w-full rounded-2xl">
+		<div className="flex flex-row p-2 items-center space-x-1 bg-slate-300 w-full lg:w-[600px] lg:h-13 rounded-2xl">
 			<img
 				src="/orchid.jpg"
 				className="h-10 w-10 rounded-full bg-indigo-700"

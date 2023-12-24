@@ -12,9 +12,9 @@ const Home = () => {
 	const reviews = 73;
 	return (
 		<div className="p-4 flex flex-col items-center justify-center relative">
-			<div className="w-full text-slate-100 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-hero bg-cover h-60 sm:h-[425px] block lg:hidden justify-center absolute top-0 start-0">
+			<div className="w-full text-slate-100 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-hero bg-cover h-60 sm:h-[425px] lg:w-[640px] block justify-center absolute top-0 start-0 lg:z-20">
 				<p>
-					Shawarma <br className="md:hidden"/>
+					Shawarma <br className="md:hidden" />
 					Your Way
 				</p>
 				<p className="italic text-xs hidden md:block w-80 my-8 font-normal">
@@ -29,8 +29,10 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
+			<div className="hidden lg:block bg-hero h-[425px] lg:w-[707px] xl:w-[640px] justify-center absolute top-0 right-0"></div>
+			<div className="hidden xl:block bg-hero h-[425px] w-[640px] justify-center absolute top-0 right-[640px] z-10"></div>
 
-			<div className="w-full mt-60 sm:mt-[425px] lg:mt-0 flex flex-col lg:flex-row space-x-0 lg:space-x-6 ">
+			<div className="w-full lg:flex-row mt-60 sm:mt-[425px] lg:mt-[340px] z-30 flex flex-col space-x-0 lg:justify-between">
 				<LocationRow />
 				<SearchBar placeholder="Search for Shawarma..." />
 			</div>
