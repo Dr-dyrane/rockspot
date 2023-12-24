@@ -41,6 +41,9 @@ const Navbar = () => {
 	const handleScroll = () => {
 		const scrollPosition = window.scrollY;
 		// Adjust opacity based on the scroll position
+		if (window.scrollY > 500){
+			setMenuOpen(false);
+		}
 		const maxScroll = isMenuOpen ? 2000 : 200; // Adjust this value based on when you want the opacity to start changing
 		const opacity = Math.min(1, 1 - scrollPosition / maxScroll);
 		setNavbarOpacity(opacity);
@@ -52,7 +55,7 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className="bg-white border-slate-200 dark:bg-slate-900 sticky top-0 z-50"
+			className="bg-white dark:bg-slate-900 sticky top-0 z-50"
 			style={{ opacity: navbarOpacity }}
 		>
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

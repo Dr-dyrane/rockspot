@@ -12,7 +12,7 @@ const Home = () => {
 	const reviews = 73;
 	return (
 		<div className="p-4 flex flex-col items-center justify-center relative">
-			<div className="w-full text-slate-100 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-hero bg-cover h-60 sm:h-96 block lg:hidden justify-center absolute top-0">
+			<div className="w-full text-slate-100 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-hero bg-cover h-60 sm:h-96 block lg:hidden justify-center absolute top-0 start-0">
 				<p>
 					Shawarma <br />
 					Your Way
