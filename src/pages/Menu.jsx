@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { categories, featuredShawarmas } from "../data/shawarmaData";
 import ShawarmaCard from "../components/ShawarmaCard";
 import CategoryCard from "../components/CategoryCard";
+import SearchBar from "../components/SearchBar";
 
 const Menu = () => {
 	return (
@@ -25,8 +26,12 @@ const Menu = () => {
 			<div className="hidden lg:block bg-menu h-[425px] lg:w-[707px] xl:w-[640px] justify-center absolute top-0 right-0"></div>
 			<div className="hidden xl:block bg-menu h-[425px] w-[640px] justify-center absolute top-0 right-[640px] z-10"></div>
 
+			<div className="w-full mb-6 mt-60 sm:mt-[425px] z-30">
+				<SearchBar placeholder="Search for Shawarma..." />
+			</div>
+
 			{/* Categories */}
-			<section className="mb-8 mt-60 sm:mt-[425px] lg:mt-[340px">
+			<section className="mb-8">
 				<h2 className="text-2xl font-bold mb-4">Categories</h2>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 					{categories.map((category) => (
