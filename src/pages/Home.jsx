@@ -12,10 +12,15 @@ const Home = () => {
 	const reviews = 73;
 	return (
 		<div className="p-4 flex flex-col items-center justify-center relative">
-			<div className="w-full text-slate-100 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-hero bg-cover h-60 sm:h-96 block lg:hidden justify-center absolute top-0 start-0">
+			<div className="w-full text-slate-100 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-hero bg-cover h-60 sm:h-[425px] block lg:hidden justify-center absolute top-0 start-0">
 				<p>
-					Shawarma <br />
+					Shawarma <br className="md:hidden"/>
 					Your Way
+				</p>
+				<p className="italic text-xs hidden md:block w-80 my-8 font-normal">
+					"culinary masterpiece, bursting with flavors that transport your taste
+					buds. Each bite is a journey of delight, making it the ultimate go-to
+					for shawarma enthusiasts!"
 				</p>
 
 				<div className="flex items-start flex-col mt-5">
@@ -25,7 +30,7 @@ const Home = () => {
 				</div>
 			</div>
 
-			<div className="w-full mt-60 sm:mt-96 lg:mt-0 flex flex-col lg:flex-row space-x-0 lg:space-x-6 ">
+			<div className="w-full mt-60 sm:mt-[425px] lg:mt-0 flex flex-col lg:flex-row space-x-0 lg:space-x-6 ">
 				<LocationRow />
 				<SearchBar placeholder="Search for Shawarma..." />
 			</div>
