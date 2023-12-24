@@ -8,14 +8,14 @@ import SearchBar from "../components/SearchBar";
 const Menu = () => {
 	return (
 		<div className="p-4 max-w-screen-xl mx-auto relative">
-			<div className="w-full text-slate-900 text-start font-bold text-4xl sm:text-5xl p-5 md:py-8 bg-menu bg-cover h-60 sm:h-[425px] lg:w-[640px] block justify-center absolute top-0 start-0 lg:z-20">
-				<p className="flex flex-col items-center md:items-start p-2 my-8 bg-slate-100/45 rounded-xl">
+			<div className="w-full text-slate-200 text-start font-bold text-4xl sm:text-5xl p-5 md:py-8 bg-menu bg-cover h-60 sm:h-[425px] lg:w-[640px] block justify-center absolute top-0 start-0 lg:z-20">
+				<p className="flex flex-col items-center md:items-start p-2 my-8 bg-slate-900/45 rounded-xl">
 					~ OUR MENU ~ <br className="md:hidden" />
 					<span className="text-2xl sm:text-3xl font-medium md:ml-[35%]">
 						Your Gateway To Ecstacy
 					</span>
 				</p>
-				<p className="items-center italic text-xs hidden md:block my-4 font-medium p-4 bg-slate-100/80 rounded-xl">
+				<p className="items-center italic text-xs hidden md:block my-4 font-medium p-4 bg-slate-900/50 rounded-xl">
 					Indulge in a culinary journey as you explore our diverse menu
 					featuring mouth-watering shawarmas in various categories, each crafted
 					to perfection. Discover signature delights and delightful combinations
@@ -31,7 +31,7 @@ const Menu = () => {
 
 			{/* Featured Shawarmas */}
 			<section>
-				<h2 className="text-3xl font-extrabold mb-6 text-indigo-700">
+				<h2 className="text-3xl font-extrabold mb-6 text-indigo-700/95">
 					Signature Shawarmas That Define Excellence
 				</h2>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
