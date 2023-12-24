@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundImage: {
         'hero': "url('/hero.jpg')",
+        'menu': "url('/menu.jpg')",
       }
     },
   },
