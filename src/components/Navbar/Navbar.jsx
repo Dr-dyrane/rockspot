@@ -71,8 +71,8 @@ const Navbar = () => {
 					<MenuButton isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 				</div>
 				<div
-					className={`items-center justify-between w-full md:flex md:w-auto md:order-1 absolute right-0 top-[71px] p-4 bg-slate-900 rounded-b-xl opacity-95 ${
-						isMenuOpen ? "block" : "hidden"
+					className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+						isMenuOpen ? "block absolute right-0 top-[71px] p-4 bg-slate-900 rounded-b-xl opacity-95" : "hidden"
 					}`}
 					id="navbar-cta"
 					ref={menuRef}

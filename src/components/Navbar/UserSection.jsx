@@ -35,7 +35,7 @@ const UserSection = ({
 					<div
 						className={`z-50 ${
 							isUserOpen ? "block" : "hidden"
-						} absolute my-4 right-2 text-base list-none bg-white divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 dark:divide-slate-600`}
+						} absolute my-4 right-2 lg:right-[270px] text-base list-none bg-white divide-y divide-slate-100 rounded-lg shadow dark:bg-slate-700 dark:divide-slate-600`}
 						id="user-dropdown"
 						ref={userDropdownRef}
 					>
