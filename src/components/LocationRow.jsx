@@ -38,13 +38,13 @@ const LocationRow = () => {
 
 				if (data.results && data.results.length > 0) {
 					const result = data.results[0];
-					const cityComponent = result.components.city;
-					const suburbComponent = result.components.suburb;
+					// const cityComponent = result.components.city;
+					// const suburbComponent = result.components.suburb;
 					const formattedAddress = result.formatted;
 					// Use the city if available, otherwise use the suburb
 					return (
-						cityComponent ||
-						suburbComponent ||
+						// cityComponent ||
+						// suburbComponent ||
 						formattedAddress ||
 						"Unknown City"
 					);
