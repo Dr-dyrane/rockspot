@@ -10,6 +10,18 @@ import Rating from "../components/Rating";
 const Home = () => {
 	const rating = 4.95;
 	const reviews = 73;
+	const createInfiniteLoop = (items) => {
+		const loopedItems = [];
+		for (let i = 0; i < 10; i++) {
+			// Adjust the loop count as needed
+			loopedItems.push(...items);
+		}
+		return loopedItems;
+	};
+
+	// Create infinite loops of categories and featuredShawarmas
+	const infiniteCategories = createInfiniteLoop(categories);
+	const infiniteFeaturedShawarmas = createInfiniteLoop(featuredShawarmas);
 	return (
 		<div className="p-4 flex flex-col items-center justify-center relative">
 			<div className="w-full text-slate-100 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-hero bg-cover h-60 sm:h-[425px] lg:w-[640px] block justify-center absolute top-0 start-0 lg:z-20">
@@ -44,11 +56,8 @@ const Home = () => {
 					Explore a variety of mouth-watering shawarmas in different categories.
 				</p>
 				<div className="justify-center space-x-2 items-center py-2 flex mt-4 max-w-sm sm:max-w-[640px] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl overflow-x-scroll hide-scroll-bar">
-					{categories.map((category) => (
-						<div
-							key={category.id}
-							className="py-1 inline-block"
-						>
+					{infiniteCategories.map((category, index) => (
+						<div key={`${category.id}-${index}`} className="py-1 inline-block">
 							<CategoryCard category={category} />
 						</div>
 					))}
@@ -64,9 +73,9 @@ const Home = () => {
 					experience.
 				</p>
 				<div className="flex items-center justify-center space-x-2 py-1 max-w-sm sm:max-w-[640px] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto overflow-scroll hide-scroll-bar">
-					{featuredShawarmas.map((shawarma) => (
+					{infiniteFeaturedShawarmas.map((shawarma, index) => (
 						<div
-							key={shawarma.id}
+							key={`${shawarma.id}-${index}`}
 							className="inline-block py-2 px-0.5 h-64 hover:animate-pulse"
 						>
 							{/* Added 'animate-bounce' for subtle bouncing animation */}
