@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./routes/appRoutes";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
+import BottomNavbar from "./components/BottomNavbar";
 
 const App = () => {
 	return (
@@ -14,6 +15,7 @@ const App = () => {
 					<AppRoutes />
 				</div>
 				<Footer />
+        <BottomNavbar />
 			</div>
 		</Router>
 	);
