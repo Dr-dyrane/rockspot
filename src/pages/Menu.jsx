@@ -2,8 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { categories, featuredShawarmas } from "../data/shawarmaData";
-import ShawarmaCard from "../components/ShawarmaCard";
-import CategoryCard from "../components/CategoryCard";
+import MenuCard from "../components/MenuCard";
 import SearchBar from "../components/SearchBar";
 
 const Menu = () => {
@@ -30,31 +29,13 @@ const Menu = () => {
 				<SearchBar placeholder="Search for Shawarma..." />
 			</div>
 
-			{/* Categories */}
-			<section className="mb-8">
-				<h2 className="text-2xl font-bold mb-4">Categories</h2>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-					{categories.map((category) => (
-						<div
-							key={category.id}
-							className="flex flex-col bg-slate-100 rounded-xl p-4 shadow-md"
-						>
-							<CategoryCard category={category} />
-						</div>
-					))}
-				</div>
-			</section>
-
 			{/* Featured Shawarmas */}
 			<section>
 				<h2 className="text-2xl font-bold mb-4">Featured Shawarmas</h2>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 					{featuredShawarmas.map((shawarma) => (
-						<div
-							key={shawarma.id}
-							className="flex flex-col bg-slate-100 rounded-xl p-4 shadow-md"
-						>
-							<ShawarmaCard shawarma={shawarma} />
+						<div key={shawarma.id}>
+							<MenuCard shawarma={shawarma} />
 						</div>
 					))}
 				</div>
