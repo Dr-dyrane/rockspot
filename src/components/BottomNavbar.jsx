@@ -52,12 +52,12 @@ const BottomNavbar = () => {
 	const location = useLocation();
 
 	return (
-		<nav className="bg-white border-t border-slate-200 fixed bottom-0 left-0 right-0 flex justify-around pt-3 pb-2">
+		<nav className="bg-white border-t border-slate-200 dark:bg-slate-800 dark:border-slate-700 fixed bottom-0 left-0 right-0 flex justify-around pt-3 pb-2">
 			{navItems.map((item) => (
 				<Link
 					key={item.to}
 					to={item.to}
-					className="flex flex-col items-center text-indigo-700"
+					className="flex flex-col items-center text-indigo-700 dark:text-indigo-300"
 				>
 					{location.pathname === item.to ? item.filledIcon : item.outlineIcon}
 					<span className="text-xs mt-1">{item.text}</span>
