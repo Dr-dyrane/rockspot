@@ -10,6 +10,7 @@ const Navbar = () => {
 	const [isMenuOpen, setMenuOpen] = useState(false);
 	const [isLoggedIn, setLoggedIn] = useState(true);
 	const [isUserOpen, setUserOpen] = useState(false);
+	const [navbarOpacity, setNavbarOpacity] = useState(1);
 
 	const menuRef = useRef(null);
 	const userDropdownRef = useRef(null);
@@ -37,12 +38,23 @@ const Navbar = () => {
 		}
 	};
 
+	const handleScroll = () => {
+		const scrollPosition = window.scrollY;
+		// Adjust opacity based on the scroll position
+		const maxScroll = isMenuOpen ? 2000 : 200; // Adjust this value based on when you want the opacity to start changing
+		const opacity = Math.min(1, 1 - scrollPosition / maxScroll);
+		setNavbarOpacity(opacity);
+	};
 	useEffect(() => {
 		document.addEventListener("click", handleClickOutside);
+		window.addEventListener("scroll", handleScroll);
 	}, [handleClickOutside]);
 
 	return (
-		<nav className="bg-white border-slate-200 dark:bg-slate-900">
+		<nav
+			className="bg-white border-slate-200 dark:bg-slate-900 sticky top-0 z-50"
+			style={{ opacity: navbarOpacity }}
+		>
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 				<Logo disabled={false} />
 				<div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
