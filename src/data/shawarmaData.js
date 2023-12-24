@@ -22,13 +22,13 @@ const categories = [
 		id: 4,
 		name: "Kebab",
 		image:
-			"https://images.pexels.com/photos/6416559/pexels-photo-6416559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+			"https://images.pexels.com/photos/7462776/pexels-photo-7462776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 	},
 	{
 		id: 5,
-		name: "Other Beef",
+		name: "Peppered Beef",
 		image:
-			"https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+			"https://images.pexels.com/photos/2336674/pexels-photo-2336674.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 	},
 	{
 		id: 6,
@@ -42,38 +42,38 @@ const categories = [
 const featuredShawarmas = [
 	{
 		id: 1,
-		name: "Spicy Chicken Shawarma",
+		name: "Signature Chicken Shawarma",
 		price: 1500,
 		image:
 			"https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 	},
 	{
 		id: 2,
-		name: "Classic Beef Shawarma",
+		name: "Signature Beef Shawarma",
 		price: 1500,
 		image:
 			"https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 	},
 	{
 		id: 3,
-		name: "Chicken Beef Shawarma",
+		name: "Chicken Beef Mix Shawarma",
 		price: 2000,
 		image:
-			"https://images.pexels.com/photos/6416559/pexels-photo-6416559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+			"https://images.pexels.com/photos/4955266/pexels-photo-4955266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 	},
 	{
 		id: 4,
-		name: "Spicy Chicken Shawarma",
+		name: "Spicy beef Shawarma",
 		price: 1500,
 		image:
-			"https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+			"https://images.pexels.com/photos/8018079/pexels-photo-8018079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 	},
 	{
 		id: 5,
-		name: "Spicy Chicken Shawarma",
+		name: "Spicy Chicken Beef Mix Shawarma",
 		price: 1500,
 		image:
-			"https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+			"https://images.pexels.com/photos/11286814/pexels-photo-11286814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 	},
 	{
 		id: 6,
