@@ -41,7 +41,7 @@ const Navbar = () => {
 	const handleScroll = () => {
 		const scrollPosition = window.scrollY;
 		// Adjust opacity based on the scroll position
-		if (window.scrollY > 500){
+		if (window.scrollY > 400){
 			setMenuOpen(false);
 		}
 		const maxScroll = isMenuOpen ? 2000 : 200; // Adjust this value based on when you want the opacity to start changing
@@ -71,7 +71,7 @@ const Navbar = () => {
 					<MenuButton isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 				</div>
 				<div
-					className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+					className={`items-center justify-between w-full md:flex md:w-auto md:order-1 absolute right-0 top-[71px] p-4 bg-slate-900 rounded-b-xl opacity-95 ${
 						isMenuOpen ? "block" : "hidden"
 					}`}
 					id="navbar-cta"
