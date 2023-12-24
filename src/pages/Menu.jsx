@@ -8,10 +8,10 @@ import CategoryCard from "../components/CategoryCard";
 const Menu = () => {
 	return (
 		<div className="p-4 max-w-screen-xl mx-auto relative">
-			<div className="w-full text-slate-900 text-start font-semibold text-4xl sm:text-5xl p-5 md:py-8 bg-menu bg-cover h-60 sm:h-[425px] lg:w-[640px] block justify-center absolute top-0 start-0 lg:z-20">
-				<p className="flex flex-col items-center md:items-start p-2 my-8 bg-slate-100/60 rounded-xl">
+			<div className="w-full text-slate-900 text-start font-bold text-4xl sm:text-5xl p-5 md:py-8 bg-menu bg-cover h-60 sm:h-[425px] lg:w-[640px] block justify-center absolute top-0 start-0 lg:z-20">
+				<p className="flex flex-col items-center md:items-start p-2 my-8 bg-slate-100/45 rounded-xl">
 					~ OUR MENU ~ <br className="md:hidden" />
-					<span className="text-2xl sm:text-3xl font-normal md:ml-[40%]">
+					<span className="text-2xl sm:text-3xl font-medium md:ml-[35%]">
 						Your Gateway To Ecstacy
 					</span>
 				</p>
