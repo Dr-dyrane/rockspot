@@ -1,6 +1,6 @@
 // routes/routes.js
 import Home from '../pages/Home';
-import Menu from '../pages/Orders';
+import Menu from '../pages/Menu';
 
 const RouteConfig = () => {
   // initiate hooks and pass as props
