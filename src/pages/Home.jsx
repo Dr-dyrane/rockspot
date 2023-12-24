@@ -1,5 +1,6 @@
 // src/pages/Home.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import ShawarmaCard from "../components/ShawarmaCard";
 import CategoryCard from "../components/CategoryCard";
 import LocationRow from "../components/LocationRow";
@@ -48,7 +49,7 @@ const Home = () => {
 				<LocationRow />
 				<SearchBar placeholder="Search for Shawarma..." />
 			</div>
-			<div className="mt-8">
+			<div className="mt-8 relative">
 				<h2 className="flex text-2xl font-bold mb-4 items-center justify-start">
 					Categories
 				</h2>
@@ -61,10 +62,18 @@ const Home = () => {
 							<CategoryCard category={category} />
 						</div>
 					))}
+					<div className="flex items-center absolute right-0 top-1 text-xs font-medium">
+						<Link
+							to="/menu"
+							className="bg-transparent border-[1px] border-indigo-700 text-indigo-700 px-2.5 py-1.5 rounded-3xl hover:bg-indigo-700 hover:text-white focus:outline-none focus:border-indigo-800 focus:ring focus:ring-indigo-200"
+						>
+							See More
+						</Link>
+					</div>
 				</div>
 			</div>
 
-			<div className="flex flex-col mt-8">
+			<div className="flex flex-col mt-8 relative">
 				<h2 className="flex text-2xl font-bold mb-4 items-center justify-start">
 					Featured Shawarmas
 				</h2>
@@ -82,6 +91,14 @@ const Home = () => {
 							<ShawarmaCard shawarma={shawarma} />
 						</div>
 					))}
+					<div className="flex items-center absolute right-0 top-1 text-xs font-medium">
+						<Link
+							to="/menu"
+							className="bg-transparent border-[1px] border-indigo-700 text-indigo-700 px-2.5 py-1.5 rounded-3xl hover:bg-indigo-700 hover:text-white focus:outline-none focus:border-indigo-800 focus:ring focus:ring-indigo-200"
+						>
+							See More
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>
