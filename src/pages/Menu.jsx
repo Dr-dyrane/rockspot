@@ -40,15 +40,6 @@ const Menu = () => {
 							className="flex flex-col bg-slate-100 rounded-xl p-4 shadow-md"
 						>
 							<CategoryCard category={category} />
-							<div className="mt-4">
-								<span className="text-gray-600">Starting from ₦1000</span>
-								<Link
-									to={`/menu/${category.id}`}
-									className="block text-indigo-700 mt-2 hover:underline"
-								>
-									See More
-								</Link>
-							</div>
 						</div>
 					))}
 				</div>
@@ -64,14 +55,6 @@ const Menu = () => {
 							className="flex flex-col bg-slate-100 rounded-xl p-4 shadow-md"
 						>
 							<ShawarmaCard shawarma={shawarma} />
-							<div className="mt-4">
-								<Link
-									to={`/menu/shawarma/${shawarma.id}`}
-									className="block text-indigo-700 mt-2 hover:underline"
-								>
-									See Details
-								</Link>
-							</div>
 						</div>
 					))}
 				</div>
