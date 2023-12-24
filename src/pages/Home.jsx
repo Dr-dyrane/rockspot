@@ -32,7 +32,7 @@ const Home = () => {
 			<div className="hidden lg:block bg-hero h-[425px] lg:w-[707px] xl:w-[640px] justify-center absolute top-0 right-0"></div>
 			<div className="hidden xl:block bg-hero h-[425px] w-[640px] justify-center absolute top-0 right-[640px] z-10"></div>
 
-			<div className="w-full lg:flex-row mt-60 sm:mt-[425px] lg:mt-[340px] z-30 flex flex-col space-x-0 lg:justify-between">
+			<div className="w-full lg:flex-row mt-60 sm:mt-[425px] lg:mt-[340px] z-30 flex flex-col space-x-0 lg:justify-between lg:space-x-2">
 				<LocationRow />
 				<SearchBar placeholder="Search for Shawarma..." />
 			</div>
@@ -43,9 +43,14 @@ const Home = () => {
 				<p className="text-start text-xs sm:text-sm mb-4 opacity-80 font-medium italic">
 					Explore a variety of mouth-watering shawarmas in different categories.
 				</p>
-				<div className="justify-center items-center py-2 grid grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-[8.5rem] mt-4 max-w-sm sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl overflow-x-scroll hide-scroll-bar">
+				<div className="justify-center space-x-2 items-center py-2 flex mt-4 max-w-sm sm:max-w-[640px] md:max-w-4xl lg:max-w-5xl xl:max-w-6xl overflow-x-scroll hide-scroll-bar">
 					{categories.map((category) => (
-						<CategoryCard key={category.id} category={category} />
+						<div
+							key={category.id}
+							className="py-1 inline-block"
+						>
+							<CategoryCard category={category} />
+						</div>
 					))}
 				</div>
 			</div>
