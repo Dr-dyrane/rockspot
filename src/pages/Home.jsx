@@ -67,7 +67,7 @@ const Home = () => {
 							to="/menu"
 							className="bg-transparent border-[1px] border-indigo-700 text-indigo-700 px-2.5 py-1.5 rounded-3xl hover:bg-indigo-700 hover:text-white focus:outline-none focus:border-indigo-800 focus:ring focus:ring-indigo-200"
 						>
-							See More
+							See Menu
 						</Link>
 					</div>
 				</div>
@@ -96,7 +96,7 @@ const Home = () => {
 							to="/menu"
 							className="bg-transparent border-[1px] border-indigo-700 text-indigo-700 px-2.5 py-1.5 rounded-3xl hover:bg-indigo-700 hover:text-white focus:outline-none focus:border-indigo-800 focus:ring focus:ring-indigo-200"
 						>
-							See More
+							See Menu
 						</Link>
 					</div>
 				</div>
