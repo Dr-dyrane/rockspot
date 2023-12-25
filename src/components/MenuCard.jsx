@@ -1,5 +1,5 @@
 // src/components/MenuCard.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	PiPlusSquareBold,
 	PiCheckSquareBold,
@@ -14,6 +14,22 @@ import {
 const MenuCard = ({ shawarma }) => {
 	const [showAddIcon, setShowAddIcon] = useState(false);
 	const [addedToCart, setAddedToCart] = useState(false);
+	const [removedFromCart, setRemovedFromCart] = useState(false);
+
+	useEffect(() => {
+		let timeout;
+		if (addedToCart) {
+			timeout = setTimeout(() => {
+				setAddedToCart(false);
+			}, 2000);
+		} else if (removedFromCart) {
+			timeout = setTimeout(() => {
+				setRemovedFromCart(false);
+				setShowAddIcon(true);
+			}, 2000);
+		}
+		return () => clearTimeout(timeout);
+	}, [addedToCart, removedFromCart]);
 
 	const handleImageInteraction = () => {
 		setShowAddIcon(true);
@@ -21,19 +37,15 @@ const MenuCard = ({ shawarma }) => {
 
 	const handleButtonClick = () => {
 		if (showAddIcon) {
-			// Implement add functionality
-			// For demonstration purposes, let's just log a message
 			console.log("Added to cart:", shawarma.name);
 			addToCart(shawarma);
-
-			// Show feedback for 2 seconds
+			console.log("Updated cartData:", getCartItems());
 			setAddedToCart(true);
-			setShowAddIcon(false);
-			setTimeout(() => {
-				setAddedToCart(false);
-			}, 2000);
 		} else {
+			console.log("Removed from cart:", shawarma.name);
 			removeFromCart(shawarma.id);
+			console.log("Updated cartData:", getCartItems());
+			setRemovedFromCart(true);
 		}
 	};
 
@@ -66,8 +78,10 @@ const MenuCard = ({ shawarma }) => {
 						<button
 							onClick={handleButtonClick}
 							className={`${
-								isItemInCart ? "text-red-500/70" : "text-white/70"
-							} text-5xl bg-slate-300/50 rounded-xl p-2 hover:bg-green-500/50 focus:outline-none animate-pulse`}
+								isItemInCart
+									? "text-red-500/70 hover:bg-red-500/50 hover:text-red-200/70"
+									: "text-white/70 hover:bg-green-500/50"
+							} text-5xl bg-slate-300/50 rounded-xl p-2 focus:outline-none animate-pulse`}
 						>
 							{isItemInCart ? <PiMinusSquareBold /> : <PiPlusSquareBold />}
 						</button>
@@ -76,6 +90,11 @@ const MenuCard = ({ shawarma }) => {
 				{addedToCart && (
 					<div className="absolute inset-0 flex items-center justify-center">
 						<PiCheckSquareBold className="text-white/50 text-6xl bg-green-500/50 rounded-xl p-2 hover:bg-green-500/50 focus:outline-none animate-pulse" />
+					</div>
+				)}
+				{removedFromCart && (
+					<div className="absolute inset-0 flex items-center justify-center">
+						<PiCheckSquareBold className="text-white/50 text-6xl bg-red-500/50 rounded-xl p-2 hover:bg-red-500/50 focus:outline-none animate-pulse" />
 					</div>
 				)}
 			</div>
