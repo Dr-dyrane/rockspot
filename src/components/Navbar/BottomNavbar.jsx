@@ -1,5 +1,5 @@
 // src/components/BottomNavbar.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
 	RiSearchFill,
@@ -14,6 +14,7 @@ import {
 	AiOutlineQuestionCircle,
 	AiFillQuestionCircle,
 } from "react-icons/ai";
+import { getCartItems } from "../../helpers/cartHelpers";
 
 const navItems = [
 	{
@@ -50,6 +51,27 @@ const navItems = [
 
 const BottomNavbar = () => {
 	const location = useLocation();
+	const [cartItemCount, setCartItemCount] = useState(0);
+
+	useEffect(() => {
+		// Update cart item count when cart items change
+		const updateCartItemCount = () => {
+			const itemsInCart = getCartItems();
+			setCartItemCount(itemsInCart.length);
+		};
+
+		// Initial update
+		updateCartItemCount();
+
+		// Listen for changes in cart items
+		// You can modify this based on your actual cart management logic
+		// For example, if you have an event that signals changes in the cart
+		// you can subscribe to that event here
+		const cartItemsChangeListener = setInterval(updateCartItemCount, 1000);
+
+		// Cleanup interval when component unmounts
+		return () => clearInterval(cartItemsChangeListener);
+	}, []); // Run once on component mount
 
 	return (
 		<nav className="bg-white border-t border-slate-200 dark:bg-slate-800 dark:border-slate-700 fixed bottom-0 left-0 right-0 flex justify-around pt-3 pb-2">
@@ -57,10 +79,23 @@ const BottomNavbar = () => {
 				<Link
 					key={item.to}
 					to={item.to}
-					className="flex flex-col items-center text-indigo-700 dark:text-indigo-300"
+					className="flex flex-col items-center text-indigo-700 dark:text-indigo-300 relative"
 				>
 					{location.pathname === item.to ? item.filledIcon : item.outlineIcon}
 					<span className="text-xs mt-1">{item.text}</span>
+					{item.text === "Orders" && cartItemCount > 0 && (
+						<span className="absolute right-0.5 top-0.5 flex h-3 w-3 rounded-full">
+							<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-200 opacity-75"></span>
+							<span className="inline-flex text-center justify-center items-center rounded-full h-3 w-3 bg-indigo-300">
+								<div
+									className="text-slate-800 font-bold"
+									style={{ fontSize: "8px" }}
+								>
+									{cartItemCount}
+								</div>
+							</span>
+						</span>
+					)}
 				</Link>
 			))}
 		</nav>
