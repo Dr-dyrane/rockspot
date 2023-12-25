@@ -12,7 +12,7 @@ import {
 } from "../helpers/cartHelpers";
 
 const MenuCard = ({ shawarma }) => {
-	const [showAddIcon, setShowAddIcon] = useState(false);
+	const [showAddOrRemoveIcon, setShowAddOrRemoveIcon] = useState(false);
 	const [addedToCart, setAddedToCart] = useState(false);
 	const [removedFromCart, setRemovedFromCart] = useState(false);
 
@@ -21,38 +21,40 @@ const MenuCard = ({ shawarma }) => {
 		if (addedToCart) {
 			timeout = setTimeout(() => {
 				setAddedToCart(false);
+				setShowAddOrRemoveIcon(true);
 			}, 2000);
 		} else if (removedFromCart) {
 			timeout = setTimeout(() => {
 				setRemovedFromCart(false);
-				setShowAddIcon(true);
+				setShowAddOrRemoveIcon(true);
 			}, 2000);
 		}
 		return () => clearTimeout(timeout);
 	}, [addedToCart, removedFromCart]);
 
 	const handleImageInteraction = () => {
-		setShowAddIcon(true);
+		setShowAddOrRemoveIcon(true);
 	};
 
 	const handleButtonClick = () => {
-		if (showAddIcon) {
-			console.log("Added to cart:", shawarma.name);
-			addToCart(shawarma);
-			console.log("Updated cartData:", getCartItems());
-			setAddedToCart(true);
-		} else {
-			console.log("Removed from cart:", shawarma.name);
-			removeFromCart(shawarma.id);
-			console.log("Updated cartData:", getCartItems());
-			setRemovedFromCart(true);
+		if (showAddOrRemoveIcon) {
+			if (!isItemInCart) {
+				console.log("Added to cart:", shawarma.name);
+				addToCart(shawarma);
+				setAddedToCart(true);
+			} else {
+				console.log("Removed from cart:", shawarma.name);
+				removeFromCart(shawarma.id);
+				setRemovedFromCart(true);
+			}
+			setShowAddOrRemoveIcon(false);
 		}
 	};
 
 	const handleMouseLeave = () => {
 		setTimeout(() => {
-			setShowAddIcon(false);
-		}, 1000); // Adjust the delay as needed (in milliseconds)
+			setShowAddOrRemoveIcon(false);
+		}, 1000);
 	};
 
 	const isItemInCart = getCartItems().some((item) => item.id === shawarma.id);
@@ -73,7 +75,7 @@ const MenuCard = ({ shawarma }) => {
 					alt={shawarma.name}
 					className="w-full h-48 object-cover"
 				/>
-				{showAddIcon && (
+				{showAddOrRemoveIcon && (
 					<div className="absolute inset-0 flex items-center justify-center">
 						<button
 							onClick={handleButtonClick}
