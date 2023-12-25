@@ -41,10 +41,12 @@ const MenuCard = ({ shawarma }) => {
 			if (!isItemInCart) {
 				console.log("Added to cart:", shawarma.name);
 				addToCart(shawarma);
+                console.log("Updated cartData:", getCartItems());
 				setAddedToCart(true);
 			} else {
 				console.log("Removed from cart:", shawarma.name);
 				removeFromCart(shawarma.id);
+                console.log("Updated cartData:", getCartItems());
 				setRemovedFromCart(true);
 			}
 			setShowAddOrRemoveIcon(false);
