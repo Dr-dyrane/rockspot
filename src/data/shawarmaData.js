@@ -42,6 +42,14 @@ const categories = [
 	},
 	{
 		id: 6,
+		name: "Peppered Chicken",
+		image:
+			"https://images.pexels.com/photos/2955819/pexels-photo-2955819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+		description:
+			"For those who enjoy a bit of spice, our peppered chicken shawarmas deliver a flavorful kick with every bite. Spicy and savory goodness.",
+	},
+	{
+		id: 7,
 		name: "Veggies",
 		image:
 			"https://images.pexels.com/photos/9980749/pexels-photo-9980749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -60,6 +68,7 @@ const featuredShawarmas = [
 			"https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 		description:
 			"Our signature chicken shawarma is a culinary masterpiece. Marinated to perfection and cooked with precision for an unforgettable taste.",
+		categoryIds: [1],
 	},
 	{
 		id: 2,
@@ -69,6 +78,7 @@ const featuredShawarmas = [
 			"https://images.pexels.com/photos/7613568/pexels-photo-7613568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 		description:
 			"Indulge in the richness of our signature beef shawarma. A true delight for beef lovers, crafted with care to satisfy your cravings.",
+		categoryIds: [2],
 	},
 	{
 		id: 3,
@@ -78,6 +88,7 @@ const featuredShawarmas = [
 			"https://images.pexels.com/photos/4955266/pexels-photo-4955266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 		description:
 			"Experience the best of both worlds with our chicken beef mix shawarma. A harmonious blend of flavors that will tantalize your taste buds.",
+		categoryIds: [1, 2, 3],
 	},
 	{
 		id: 4,
@@ -87,6 +98,7 @@ const featuredShawarmas = [
 			"https://images.pexels.com/photos/8018079/pexels-photo-8018079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 		description:
 			"For those who love a spicy kick, our spicy beef shawarma is the perfect choice. Fiery and flavorful, it's a spicy delight for your palate.",
+		categoryIds: [2, 5],
 	},
 	{
 		id: 5,
@@ -96,15 +108,27 @@ const featuredShawarmas = [
 			"https://images.pexels.com/photos/11286814/pexels-photo-11286814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 		description:
 			"Spice up your shawarma experience with our spicy chicken beef mix. A tantalizing combination of heat and savory goodness in every bite.",
+		categoryIds: [1, 2, 3],
 	},
 	{
 		id: 6,
+		name: "Spicy Chicken Shawarma",
+		price: 1500,
+		image:
+			"https://images.pexels.com/photos/2955819/pexels-photo-2955819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+		description:
+			"Spice up your shawarma experience with our spicy chicken beef mix. A tantalizing combination of heat and savory goodness in every bite.",
+		categoryIds: [1, 5],
+	},
+	{
+		id: 7,
 		name: "Vegetable Shawarma",
 		price: 1500,
 		image:
 			"https://images.pexels.com/photos/9980749/pexels-photo-9980749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 		description:
 			"For our vegetarian friends, indulge in the freshness of our vegetable shawarma. A vibrant medley of flavors for a satisfying meat-free option.",
+		categoryIds: [7],
 	},
 	// Add more featured shawarmas as needed
 ];

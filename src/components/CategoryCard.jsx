@@ -9,7 +9,7 @@ const CategoryCard = ({ category }) => {
         alt={category.name}
         className="w-32 h-32 object-cover mx-auto mb-2 rounded-xl"
       />
-      <p className="absolute inset-0 flex items-end justify-center text-white text-md font-semibold">{category.name}</p>
+      <p className="p-1 absolute inset-0 flex items-end justify-center text-white text-sm font-semibold">{category.name}</p>
     </div>
   );
 };
