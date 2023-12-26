@@ -45,8 +45,7 @@ const LocationRow = () => {
 					return (
 						// cityComponent ||
 						// suburbComponent ||
-						formattedAddress ||
-						"Unknown City"
+						formattedAddress || "Unknown City"
 					);
 				} else {
 					throw new Error("City not found");
@@ -75,16 +74,22 @@ const LocationRow = () => {
 			/>
 
 			<div className="flex-1">
-				<div className="sm:flex font-bold text-md items-center justify-between px-2 overflow-x-auto hide-scroll-bar">
+				<div className="sm:flex font-bold text-md items-center justify-between px-2 overflow-x-scroll hide-scroll-bar">
 					<div className="font-bold text-gray-400 text-sm">Deliver Now!</div>
-					<div className="flex flex-row items-center text-sm justify-between">
+					<div className="flex flex-row items-center text-sm justify-between max-w-[300px] sm:max-w-[450px] md:max-w-[650px] lg:max-w-[400px] xl:max-w-[400px] mx-auto overflow-x-scroll hide-scroll-bar">
 						<div className="flex flex-row items-center">
 							<FaMapMarkerAlt size={12} color="gray" />
 							<span className="ml-1 whitespace-nowrap overflow-scroll hide-scroll-bar">
 								{userLocation}
 							</span>
 						</div>
-
+						<FaCaretDown
+							className="block sm:hidden"
+							size={18}
+							color="gray"
+						/>
+					</div>
+					<div className="hidden sm:block">
 						<FaCaretDown className="ml-1" size={18} color="gray" />
 					</div>
 				</div>
