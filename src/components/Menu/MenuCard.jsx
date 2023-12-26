@@ -15,6 +15,7 @@ import {
 	getOrderItems,
 	modifyOrderOptions,
 } from "../../helpers/cartHelpers";
+import OptionsModal from "./OptionsModal";
 
 const MenuCard = ({ shawarma }) => {
 	const [showAddOrRemoveIcon, setShowAddOrRemoveIcon] = useState(false);
@@ -90,6 +91,9 @@ const MenuCard = ({ shawarma }) => {
 		<div
 			className="rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105 hover:shadow-lg duration-300 ease-in-out"
 			onMouseLeave={handleMouseLeave}
+			onMouseEnter={handleImageInteraction}
+			onTouchStart={handleImageInteraction}
+			onFocus={handleImageInteraction}
 		>
 			<div
 				className="relative cursor-pointer"
@@ -141,9 +145,19 @@ const MenuCard = ({ shawarma }) => {
 				)}
 				{isItemInCart && (
 					<div className="flex flex-row items-center justify-between">
-						<p className="italic font-normal text-sm">~ one {shawarma.name} has been added to cart, customise your options </p>
-						<button className="ml-2 animate-pulse hover:animate-none" onClick={handleToggleOptions}>
-							<PiToggleLeftFill size={36} />
+						<p className="italic font-normal text-sm">
+							~ one {shawarma.name} has been added to cart, customise your
+							options{" "}
+						</p>
+						<button
+							className="ml-2 animate-pulse hover:animate-none"
+							onClick={handleToggleOptions}
+						>
+							{showOptionsModal ? (
+								<PiToggleRightFill size={36} />
+							) : (
+								<PiToggleLeftFill size={36} />
+							)}
 						</button>
 					</div>
 				)}
@@ -151,43 +165,12 @@ const MenuCard = ({ shawarma }) => {
 
 			{/* Modal for customizing options */}
 			{showOptionsModal && (
-				<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-					<div className="bg-slate-200 p-6 rounded-xl relative">
-						<label className="flex text-indifgo-700 text-md font-bold mb-2 flex-row items-center">
-						<span><PiPepperFill color="red" className="mr-2"/></span>Spiciness
-						</label>
-						<select
-							className="w-full p-2 border rounded-xl text-sm italic"
-							value={modifiedOptions.spiciness}
-							onChange={(e) =>
-								setModifiedOptions({
-									...modifiedOptions,
-									spiciness: e.target.value,
-								})
-							}
-						>
-							<option value="normal">Normal</option>
-							<option value="extra">Extra</option>
-							{/* Add more options as needed */}
-						</select>
-
-						{/* Repeat similar logic for other options */}
-						{/* ... (customize the form fields) */}
-
-						<button
-							className="mt-4 bg-indigo-600 text-white py-1 px-4 rounded-lg w-full"
-							onClick={handleSaveOptions}
-						>
-							Save
-						</button>
-						<button
-							className="absolute top-2 right-2"
-							onClick={handleToggleOptions}
-						>
-							<PiToggleRightFill size={36} />
-						</button>
-					</div>
-				</div>
+				<OptionsModal
+					modifiedOptions={modifiedOptions}
+					setModifiedOptions={setModifiedOptions}
+					handleSaveOptions={handleSaveOptions}
+					handleToggleOptions={handleToggleOptions}
+				/>
 			)}
 		</div>
 	);
