@@ -9,6 +9,7 @@ import {
 	addToCart,
 	removeFromCart,
 	getCartItems,
+	getOrderItems,
 } from "../../helpers/cartHelpers";
 
 const MenuCard = ({ shawarma }) => {
@@ -42,11 +43,13 @@ const MenuCard = ({ shawarma }) => {
 				console.log("Added to cart:", shawarma.name);
 				addToCart(shawarma);
                 console.log("Updated cartData:", getCartItems());
+                console.log("Updated orderData:", getOrderItems());
 				setAddedToCart(true);
 			} else {
 				console.log("Removed from cart:", shawarma.name);
 				removeFromCart(shawarma.id);
                 console.log("Updated cartData:", getCartItems());
+                console.log("Updated orderData:", getOrderItems());
 				setRemovedFromCart(true);
 			}
 			setShowAddOrRemoveIcon(false);
