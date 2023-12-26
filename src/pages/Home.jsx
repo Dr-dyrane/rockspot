@@ -1,12 +1,12 @@
 // src/pages/Home.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import ShawarmaCard from "../components/ShawarmaCard";
-import CategoryCard from "../components/CategoryCard";
-import LocationRow from "../components/LocationRow";
+import ShawarmaCard from "../components/Home/ShawarmaCard";
+import CategoryCard from "../components/Home/CategoryCard";
+import LocationRow from "../components/Home/LocationRow";
 import SearchBar from "../components/SearchBar";
 import { categories, featuredShawarmas } from "../data/shawarmaData";
-import Rating from "../components/Rating";
+import Rating from "../components/Home/Rating";
 
 const Home = () => {
 	const rating = 4.95;

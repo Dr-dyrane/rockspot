@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { categories, featuredShawarmas } from "../data/shawarmaData";
-import MenuCard from "../components/MenuCard";
+import MenuCard from "../components/Menu/MenuCard";
 import SearchBar from "../components/SearchBar";
 
 const Menu = () => {

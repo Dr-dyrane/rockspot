@@ -9,7 +9,7 @@ import {
 	addToCart,
 	removeFromCart,
 	getCartItems,
-} from "../helpers/cartHelpers";
+} from "../../helpers/cartHelpers";
 
 const MenuCard = ({ shawarma }) => {
 	const [showAddOrRemoveIcon, setShowAddOrRemoveIcon] = useState(false);

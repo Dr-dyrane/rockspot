@@ -1,8 +1,8 @@
 // src/components/Orders.jsx
 import React, { useState } from "react";
 import { getCartItems } from "../helpers/cartHelpers";
-import OngoingOrders from "../components/OngoingOrders";
-import CompletedOrders from "../components/CompletedOrders";
+import OngoingOrders from "../components/Orders/OngoingOrders";
+import CompletedOrders from "../components/Orders/CompletedOrders";
 import { Link } from "react-router-dom";
 import { MdNextPlan } from "react-icons/md";
 import { IoChevronBackCircle } from "react-icons/io5";
