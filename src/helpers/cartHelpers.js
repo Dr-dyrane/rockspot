@@ -17,9 +17,23 @@ const createOrderFromCartItem = (cartItem) => {
 	return {
 		name: `${cartItem.name} - ${cartItem.id}`,
 		featureItem: cartItem,
-		category: cartItem.categoryIds.includes(5) ? "spicy" : "non-spicy", // Assuming category 5 is spicy
+		category: cartItem.categoryIds.includes(5 || 6) ? "spicy" : "non-spicy", // Assuming category 5 is spicy
 		options: { ...defaultOptions },
 	};
+};
+
+// Helper function to modify options in order data
+export const modifyOrderOptions = (itemId, modifiedOptions) => {
+	const orderIndex = ordersData.findIndex(
+		(order) => order.featureItem.id === itemId
+	);
+
+	if (orderIndex !== -1) {
+		ordersData[orderIndex].options = {
+			...ordersData[orderIndex].options,
+			...modifiedOptions,
+		};
+	}
 };
 
 // Add item to cart
@@ -70,4 +84,13 @@ export const getCartItems = () => {
 // Get order items
 export const getOrderItems = () => {
 	return ordersData;
+};
+
+export default {
+	addToCart,
+	removeFromCart,
+	getCartItems,
+	ordersData,
+	createOrderFromCartItem,
+	modifyOrderOptions,
 };

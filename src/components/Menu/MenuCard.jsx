@@ -4,18 +4,30 @@ import {
 	PiPlusSquareBold,
 	PiCheckSquareBold,
 	PiMinusSquareBold,
+	PiToggleRightFill,
+	PiToggleLeftFill,
+	PiPepperFill,
 } from "react-icons/pi";
 import {
 	addToCart,
 	removeFromCart,
 	getCartItems,
 	getOrderItems,
+	modifyOrderOptions,
 } from "../../helpers/cartHelpers";
 
 const MenuCard = ({ shawarma }) => {
 	const [showAddOrRemoveIcon, setShowAddOrRemoveIcon] = useState(false);
 	const [addedToCart, setAddedToCart] = useState(false);
 	const [removedFromCart, setRemovedFromCart] = useState(false);
+	const [showOptionsModal, setShowOptionsModal] = useState(false);
+	const [modifiedOptions, setModifiedOptions] = useState({
+		spiciness: "normal",
+		ketchup: "normal",
+		barma: "normal",
+		hotdog: false,
+		hotdogQuantity: 0,
+	});
 
 	useEffect(() => {
 		let timeout;
@@ -42,18 +54,28 @@ const MenuCard = ({ shawarma }) => {
 			if (!isItemInCart) {
 				console.log("Added to cart:", shawarma.name);
 				addToCart(shawarma);
-                console.log("Updated cartData:", getCartItems());
-                console.log("Updated orderData:", getOrderItems());
+				console.log("Updated cartData:", getCartItems());
+				console.log("Updated orderData:", getOrderItems());
 				setAddedToCart(true);
 			} else {
 				console.log("Removed from cart:", shawarma.name);
 				removeFromCart(shawarma.id);
-                console.log("Updated cartData:", getCartItems());
-                console.log("Updated orderData:", getOrderItems());
+				console.log("Updated cartData:", getCartItems());
+				console.log("Updated orderData:", getOrderItems());
 				setRemovedFromCart(true);
 			}
 			setShowAddOrRemoveIcon(false);
 		}
+	};
+
+	const handleToggleOptions = () => {
+		setShowOptionsModal(!showOptionsModal);
+	};
+
+	const handleSaveOptions = () => {
+		modifyOrderOptions(shawarma.id, modifiedOptions);
+		console.log("Updated orderData:", getOrderItems());
+		setShowOptionsModal(false);
 	};
 
 	const handleMouseLeave = () => {
@@ -112,10 +134,61 @@ const MenuCard = ({ shawarma }) => {
 						~₦{shawarma.price}
 					</p>
 				</div>
-				<p className="mt-2 text-indigo-700/75 italic text-xs">
-					"{shawarma.description}"
-				</p>
+				{!isItemInCart && (
+					<p className="mt-2 text-indigo-700/75 italic text-xs">
+						"{shawarma.description}"
+					</p>
+				)}
+				{isItemInCart && (
+					<div className="flex flex-row items-center justify-between">
+						<p className="italic font-normal text-sm">~ one {shawarma.name} has been added to cart, customise your options </p>
+						<button className="ml-2 animate-pulse hover:animate-none" onClick={handleToggleOptions}>
+							<PiToggleLeftFill size={36} />
+						</button>
+					</div>
+				)}
 			</div>
+
+			{/* Modal for customizing options */}
+			{showOptionsModal && (
+				<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+					<div className="bg-slate-200 p-6 rounded-xl relative">
+						<label className="flex text-indifgo-700 text-md font-bold mb-2 flex-row items-center">
+						<span><PiPepperFill color="red" className="mr-2"/></span>Spiciness
+						</label>
+						<select
+							className="w-full p-2 border rounded-xl text-sm italic"
+							value={modifiedOptions.spiciness}
+							onChange={(e) =>
+								setModifiedOptions({
+									...modifiedOptions,
+									spiciness: e.target.value,
+								})
+							}
+						>
+							<option value="normal">Normal</option>
+							<option value="extra">Extra</option>
+							{/* Add more options as needed */}
+						</select>
+
+						{/* Repeat similar logic for other options */}
+						{/* ... (customize the form fields) */}
+
+						<button
+							className="mt-4 bg-indigo-600 text-white py-1 px-4 rounded-lg w-full"
+							onClick={handleSaveOptions}
+						>
+							Save
+						</button>
+						<button
+							className="absolute top-2 right-2"
+							onClick={handleToggleOptions}
+						>
+							<PiToggleRightFill size={36} />
+						</button>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
