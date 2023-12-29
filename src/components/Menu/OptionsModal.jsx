@@ -56,7 +56,7 @@ const OptionsModal = ({
 					{/* Quantity field with increase and decrease buttons */}
 					<label className="flex text-indigo-700 text-md font-bold mb-2 flex-row items-center">
 						<span>
-							<PiCirclesThreeFill color="blue" className="mr-2" />
+							<PiCirclesThreeFill color="" className="mr-2" />
 						</span>
 						Quantity
 					</label>
@@ -68,7 +68,7 @@ const OptionsModal = ({
 							onChange={(e) => handleQuantityChange(parseInt(e.target.value))}
 						/>
 
-						<div className="ml-2 text-xs">
+						<div className="ml-2 text-sm">
 							<button className="" onClick={handleIncreaseQuantity}>
 								<PiCaretUpFill />
 							</button>

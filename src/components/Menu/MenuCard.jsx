@@ -150,9 +150,9 @@ const MenuCard = ({ shawarma }) => {
 				)}
 				{isItemInCart && (
 					<div className="flex flex-row items-center justify-between">
-						<p className="italic font-normal text-sm">
-							~ one {shawarma.name} has been added to cart, customise your
-							options{" "}
+						<p className="italic font-normal text-xs">
+							~ one {shawarma.name} has been added to cart, <span className="font-bold">please customise your
+							options</span>
 						</p>
 						<button
 							className="ml-2 animate-pulse hover:animate-none"
