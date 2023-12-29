@@ -4,6 +4,8 @@ import {
 	PiPepperFill,
 	PiToggleRightFill,
 	PiCirclesThreeFill,
+	PiCaretUpFill,
+	PiCaretDownFill,
 } from "react-icons/pi";
 
 const OptionsModal = ({
@@ -42,19 +44,40 @@ const OptionsModal = ({
 				</div>
 
 				<div>
-					{/* Quantity field */}
-					<label className="flex text-indifgo-700 text-md font-bold mb-2 flex-row items-center">
+					{/* Quantity field with increase and decrease buttons */}
+					<label className="flex text-indigo-700 text-md font-bold mb-2 flex-row items-center">
 						<span>
 							<PiCirclesThreeFill color="blue" className="mr-2" />
 						</span>
 						Quantity
 					</label>
-					<input
-						type="number"
-						className="w-full p-2 border rounded-xl text-sm italic"
-						value={modifiedOptions.quantity}
-						onChange={(e) => handleQuantityChange(parseInt(e.target.value))}
-					/>
+					<div className="flex items-center">
+						<input
+							type="number"
+							className="w-full p-2 border rounded-xl text-sm italic pl-4"
+							value={modifiedOptions.quantity}
+							onChange={(e) => handleQuantityChange(parseInt(e.target.value))}
+						/>
+
+						<div className="ml-2 text-xs">
+							<button
+								className=""
+								onClick={() =>
+									handleQuantityChange(modifiedOptions.quantity + 1)
+								}
+							>
+								<PiCaretUpFill />
+							</button>
+							<button
+								className=""
+								onClick={() =>
+									handleQuantityChange(modifiedOptions.quantity - 1)
+								}
+							>
+								<PiCaretDownFill />
+							</button>
+						</div>
+					</div>
 				</div>
 
 				{/* Repeat similar logic for other options */}
