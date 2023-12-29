@@ -15,6 +15,15 @@ const OptionsModal = ({
 	handleToggleOptions,
 	handleQuantityChange,
 }) => {
+	const handleIncreaseQuantity = () => {
+		const newQuantity = Math.min(modifiedOptions.quantity + 1, 10);
+		handleQuantityChange(newQuantity);
+	};
+
+	const handleDecreaseQuantity = () => {
+		const newQuantity = Math.max(modifiedOptions.quantity - 1, 1);
+		handleQuantityChange(newQuantity);
+	};
 	return (
 		<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
 			<div className="bg-gray-200 p-6 rounded-xl relative space-y-2">
@@ -60,20 +69,10 @@ const OptionsModal = ({
 						/>
 
 						<div className="ml-2 text-xs">
-							<button
-								className=""
-								onClick={() =>
-									handleQuantityChange(modifiedOptions.quantity + 1)
-								}
-							>
+							<button className="" onClick={handleIncreaseQuantity}>
 								<PiCaretUpFill />
 							</button>
-							<button
-								className=""
-								onClick={() =>
-									handleQuantityChange(modifiedOptions.quantity - 1)
-								}
-							>
+							<button className="" onClick={handleDecreaseQuantity}>
 								<PiCaretDownFill />
 							</button>
 						</div>
@@ -84,13 +83,13 @@ const OptionsModal = ({
 				{/* ... (customize the form fields) */}
 				<div className="flex flex-row space-x-2">
 					<button
-						className="mt-4 bg-rose-600 text-white py-1 px-4 rounded-lg w-full"
+						className="mt-4 bg-rose-600 text-white py-1.5 px-4 rounded-lg w-full"
 						onClick={handleToggleOptions}
 					>
 						Close
 					</button>
 					<button
-						className="mt-4 bg-indigo-600 text-white py-1 px-4 rounded-lg w-full"
+						className="mt-4 bg-indigo-600 text-white py-1.5 px-4 rounded-lg w-full"
 						onClick={handleSaveOptions}
 					>
 						Save
