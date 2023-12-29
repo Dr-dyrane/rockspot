@@ -33,7 +33,7 @@ const OptionsModal = ({
 
 	return (
 		<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-			<div className="bg-gray-200 p-6 rounded-xl relative space-y-2">
+			<div className="bg-gray-200/80 p-6 rounded-xl relative space-y-1">
 				{/* Render the OptionsForm component */}
 				<OptionsForm
 					modifiedOptions={modifiedOptions}
@@ -51,13 +51,13 @@ const OptionsModal = ({
 				{/* ... (customize the form fields) */}
 				<div className="flex flex-row space-x-2">
 					<button
-						className="mt-4 bg-rose-600 text-white py-1.5 px-4 rounded-lg w-full"
+						className="mt-2 bg-rose-600 text-white py-1.5 px-4 rounded-lg w-full"
 						onClick={handleToggleOptions}
 					>
 						Close
 					</button>
 					<button
-						className="mt-4 bg-indigo-600 text-white py-1.5 px-4 rounded-lg w-full"
+						className="mt-2 bg-indigo-600 text-white py-1.5 px-4 rounded-lg w-full"
 						onClick={handleSaveOptions}
 					>
 						Save
@@ -65,7 +65,7 @@ const OptionsModal = ({
 				</div>
 
 				<button
-					className="absolute top-2 right-2"
+					className="absolute top-0 right-2"
 					onClick={handleToggleOptions}
 				>
 					<PiToggleRightFill size={36} color="red" />
