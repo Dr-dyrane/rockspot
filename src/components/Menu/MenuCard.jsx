@@ -31,6 +31,19 @@ const MenuCard = ({ shawarma }) => {
 		quantity: 1,
 	});
 
+	// Helper function to generate a summary of modified options
+	const generateOptionsSummary = () => {
+		const { quantity, spiciness, ketchup, barma, hotdog, hotdogQuantity } =
+			modifiedOptions;
+
+		// Customize this string based on your preferences
+		return `${quantity} ${shawarma.name} with ${spiciness} spice, ${
+			ketchup === "normal" ? "ketchup" : "extra ketchup"
+		}, ${barma === "normal" ? "barma" : "extra barma"}, ${
+			hotdog ? "with hotdog" : "without hotdog"
+		}${hotdog ? `, ${hotdogQuantity} hotdogs` : ""}`;
+	};
+
 	useEffect(() => {
 		let timeout;
 		if (addedToCart) {
@@ -82,7 +95,7 @@ const MenuCard = ({ shawarma }) => {
 
 	const handleQuantityChange = (quantity) => {
 		setModifiedOptions({ ...modifiedOptions, quantity });
-	  };
+	};
 
 	const handleMouseLeave = () => {
 		setTimeout(() => {
@@ -151,8 +164,8 @@ const MenuCard = ({ shawarma }) => {
 				{isItemInCart && (
 					<div className="flex flex-row items-center justify-between">
 						<p className="italic font-normal text-xs">
-							~ one {shawarma.name} has been added to cart, <span className="font-bold">please customise your
-							options</span>
+							~ {generateOptionsSummary()} has been added to cart,{" "}
+							<span className="font-bold">please customise your options</span>
 						</p>
 						<button
 							className="ml-2 animate-pulse hover:animate-none"
