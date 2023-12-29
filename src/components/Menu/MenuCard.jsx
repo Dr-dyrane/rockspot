@@ -96,6 +96,16 @@ const MenuCard = ({ shawarma }) => {
 		setModifiedOptions({ ...modifiedOptions, quantity });
 	};
 
+	const calculateModifiedPrice = () => {
+		let modifiedPrice = shawarma.price * modifiedOptions.quantity;
+	
+		if (modifiedOptions.hotdog) {
+		  modifiedPrice += modifiedOptions.hotdogQuantity * 500;
+		}
+	
+		return modifiedPrice;
+	  };
+
 	const handleMouseLeave = () => {
 		setTimeout(() => {
 			setShowAddOrRemoveIcon(false);
@@ -103,12 +113,7 @@ const MenuCard = ({ shawarma }) => {
 	};
 
 	const isItemInCart = getCartItems().some((item) => item.id === shawarma.id);
-	// Check if there are modified options to display the modified price
-	const displayPrice =
-		Object.values(modifiedOptions).some((value) => value !== shawarma[value]) ||
-		modifiedOptions.quantity !== 1
-			? shawarma.price * modifiedOptions.quantity
-			: shawarma.price;
+
 	return (
 		<div
 			className="rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105 hover:shadow-lg duration-300 ease-in-out"
@@ -156,7 +161,7 @@ const MenuCard = ({ shawarma }) => {
 			<div className="p-4">
 				<div className="flex justify-between items-center">
 					<p className="text-md font-bold">{shawarma.name}</p>
-					<p className="text-md font-black text-indigo-700">~₦{displayPrice}</p>
+					<p className="text-md font-black text-indigo-700">~₦{calculateModifiedPrice()}</p>
 				</div>
 				{!isItemInCart && (
 					<p className="mt-2 text-indigo-700/75 italic text-xs">
