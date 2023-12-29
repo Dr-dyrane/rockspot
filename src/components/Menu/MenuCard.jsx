@@ -28,6 +28,7 @@ const MenuCard = ({ shawarma }) => {
 		barma: "normal",
 		hotdog: false,
 		hotdogQuantity: 0,
+		quantity: 1,
 	});
 
 	useEffect(() => {
@@ -78,6 +79,10 @@ const MenuCard = ({ shawarma }) => {
 		console.log("Updated orderData:", getOrderItems());
 		setShowOptionsModal(false);
 	};
+
+	const handleQuantityChange = (quantity) => {
+		setModifiedOptions({ ...modifiedOptions, quantity });
+	  };
 
 	const handleMouseLeave = () => {
 		setTimeout(() => {
@@ -170,6 +175,7 @@ const MenuCard = ({ shawarma }) => {
 					setModifiedOptions={setModifiedOptions}
 					handleSaveOptions={handleSaveOptions}
 					handleToggleOptions={handleToggleOptions}
+					handleQuantityChange={handleQuantityChange}
 				/>
 			)}
 		</div>
