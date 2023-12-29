@@ -1,12 +1,9 @@
 // A new component for rendering the options modal
 import React from "react";
 import {
-	PiPepperFill,
 	PiToggleRightFill,
-	PiCirclesThreeFill,
-	PiCaretUpFill,
-	PiCaretDownFill,
 } from "react-icons/pi";
+import OptionsForm from "./OptionsForm";
 
 const OptionsModal = ({
 	modifiedOptions,
@@ -14,6 +11,7 @@ const OptionsModal = ({
 	handleSaveOptions,
 	handleToggleOptions,
 	handleQuantityChange,
+	shawarmaPrice,
 }) => {
 	const handleIncreaseQuantity = () => {
 		const newQuantity = Math.min(modifiedOptions.quantity + 1, 10);
@@ -24,59 +22,31 @@ const OptionsModal = ({
 		const newQuantity = Math.max(modifiedOptions.quantity - 1, 1);
 		handleQuantityChange(newQuantity);
 	};
+	// Calculate modified price based on quantity and hotdog options
+	const calculateModifiedPrice = () => {
+		let modifiedPrice = shawarmaPrice * modifiedOptions.quantity;
+
+		if (modifiedOptions.hotdog) {
+			modifiedPrice += modifiedOptions.hotdogQuantity * 500;
+		}
+
+		return modifiedPrice;
+	};
+
 	return (
 		<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
 			<div className="bg-gray-200 p-6 rounded-xl relative space-y-2">
-				{/* ... (option form fields) */}
-				<div>
-					<label className="flex text-indigo-700 text-md font-bold mb-2 flex-row items-center ">
-						<span>
-							<PiPepperFill color="red" className="mr-2" />
-						</span>
-						Spiciness
-					</label>
-					<select
-						className="w-full p-2 border rounded-xl text-sm italic"
-						value={modifiedOptions.spiciness}
-						onChange={(e) =>
-							setModifiedOptions({
-								...modifiedOptions,
-								spiciness: e.target.value,
-							})
-						}
-					>
-						<option value="less">Less</option>
-						<option value="normal">Normal</option>
-						<option value="extra">Extra</option>
-						{/* Add more options as needed */}
-					</select>
-				</div>
+				{/* Render the OptionsForm component */}
+				<OptionsForm
+					modifiedOptions={modifiedOptions}
+					setModifiedOptions={setModifiedOptions}
+					handleIncreaseQuantity={handleIncreaseQuantity}
+					handleDecreaseQuantity={handleDecreaseQuantity}
+				/>
 
-				<div>
-					{/* Quantity field with increase and decrease buttons */}
-					<label className="flex text-indigo-700 text-md font-bold mb-2 flex-row items-center">
-						<span>
-							<PiCirclesThreeFill color="" className="mr-2" />
-						</span>
-						Quantity
-					</label>
-					<div className="flex items-center">
-						<input
-							type="number"
-							className="w-full p-2 border rounded-xl text-sm italic pl-4"
-							value={modifiedOptions.quantity}
-							onChange={(e) => handleQuantityChange(parseInt(e.target.value))}
-						/>
-
-						<div className="ml-2 text-sm">
-							<button className="" onClick={handleIncreaseQuantity}>
-								<PiCaretUpFill />
-							</button>
-							<button className="" onClick={handleDecreaseQuantity}>
-								<PiCaretDownFill />
-							</button>
-						</div>
-					</div>
+				{/* Display the calculated modified price */}
+				<div className="text-indigo-700 text-sm font-bold mt-2">
+					Total Price: ₦{calculateModifiedPrice()}
 				</div>
 
 				{/* Repeat similar logic for other options */}

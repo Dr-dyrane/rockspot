@@ -189,6 +189,7 @@ const MenuCard = ({ shawarma }) => {
 					handleSaveOptions={handleSaveOptions}
 					handleToggleOptions={handleToggleOptions}
 					handleQuantityChange={handleQuantityChange}
+					shawarmaPrice={shawarma.price}
 				/>
 			)}
 		</div>
