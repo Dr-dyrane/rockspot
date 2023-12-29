@@ -1,8 +1,6 @@
 // A new component for rendering the options modal
 import React from "react";
-import {
-	PiToggleRightFill,
-} from "react-icons/pi";
+import { PiToggleRightFill } from "react-icons/pi";
 import OptionsForm from "./OptionsForm";
 
 const OptionsModal = ({
