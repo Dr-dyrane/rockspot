@@ -107,7 +107,7 @@ const OptionsForm = ({
 									hotdogQuantity: parseInt(e.target.value),
 								})
 							}
-							min="0"
+							min="1"
 							max="4"
 						/>
 					</div>
