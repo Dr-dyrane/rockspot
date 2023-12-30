@@ -22,7 +22,7 @@ const OptionsForm = ({
 							Spiciness
 						</label>
 						<select
-							className="w-full md:w-auto p-0.5 rounded-md text-xs italic"
+							className="w-full md:w-auto p-[3px] rounded-md text-xs italic"
 							value={modifiedOptions.spiciness}
 							onChange={(e) =>
 								setModifiedOptions({
@@ -40,7 +40,7 @@ const OptionsForm = ({
 					<div className="flex flex-row items-center space-x-2">
 						<label className="text-indigo-700 text-xs font-bold">Ketchup</label>
 						<select
-							className="w-full md:w-auto p-0.5 rounded-md text-xs italic"
+							className="w-full md:w-auto p-[3px] rounded-md text-xs italic"
 							value={modifiedOptions.ketchup}
 							onChange={(e) =>
 								setModifiedOptions({
@@ -61,7 +61,7 @@ const OptionsForm = ({
 			<div className="flex flex-row items-center space-x-2">
 				<label className="text-indigo-700 text-xs font-bold">Barma</label>
 				<select
-					className="w-full md:w-auto p-0.5 rounded-md text-xs italic"
+					className="w-full md:w-auto p-[3px] rounded-md text-xs italic"
 					value={modifiedOptions.barma}
 					onChange={(e) =>
 						setModifiedOptions({
@@ -75,12 +75,12 @@ const OptionsForm = ({
 					<option value="extra">Extra</option>
 				</select>
 			</div>
-			<div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+			<div className="flex flex-row space-x-4">
 				{/* Hotdog */}
 				<div className="flex flex-row items-center space-x-2">
 					<label className="text-indigo-700 text-xs font-bold">Hotdog</label>
 					<select
-						className="w-full md:w-auto p-0.5 rounded-md text-xs italic"
+						className="w-full md:w-auto p-[3px] rounded-md text-xs italic"
 						value={modifiedOptions.hotdog ? "true" : "false"}
 						onChange={(e) =>
 							setModifiedOptions({
@@ -96,30 +96,61 @@ const OptionsForm = ({
 				{/* Hotdog Quantity */}
 				{modifiedOptions.hotdog && (
 					<div className="flex flex-row items-center space-x-2">
-						<label className="text-indigo-700 text-xs font-bold">Qty</label>
-						<input
-							type="number"
-							className="w-full md:w-auto p-0.5 rounded-md text-xs italic pl-4"
-							value={modifiedOptions.hotdogQuantity}
-							onChange={(e) =>
-								setModifiedOptions({
-									...modifiedOptions,
-									hotdogQuantity: parseInt(e.target.value),
-								})
-							}
-							min="1"
-							max="4"
-						/>
+						<label className="text-indigo-700 text-xs font-bold">Number of Hotdogs</label>
+						<div className="flex items-center">
+							<input
+								type="number"
+								className="w-full md:w-auto p-[3px] rounded-md text-xs italic pl-4"
+								value={modifiedOptions.hotdogQuantity}
+								onChange={(e) =>
+									setModifiedOptions({
+										...modifiedOptions,
+										hotdogQuantity: parseInt(e.target.value),
+									})
+								}
+								min="1"
+								max="4"
+							/>
+							<div className="ml-2 text-xs">
+								<button
+									className=""
+									onClick={() =>
+										setModifiedOptions({
+											...modifiedOptions,
+											hotdogQuantity: modifiedOptions.hotdogQuantity + 1,
+										})
+									}
+								>
+									<PiCaretUpFill />
+								</button>
+								<button
+									className=""
+									onClick={() =>
+										setModifiedOptions({
+											...modifiedOptions,
+											hotdogQuantity: Math.max(
+												1,
+												modifiedOptions.hotdogQuantity - 1
+											),
+										})
+									}
+								>
+									<PiCaretDownFill />
+								</button>
+							</div>
+						</div>
 					</div>
 				)}
 			</div>
 			{/* Quantity */}
-			<div className="flex flex-row items-center space-x-2">
-				<label className="text-indigo-700 text-xs font-bold">Total Quantity</label>
+			<div className="flex flex-row items-center space-x-4">
+				<label className="text-indigo-700 text-xs font-bold">
+					Total Quantity
+				</label>
 				<div className="flex items-center">
 					<input
 						type="number"
-						className="w-full md:w-auto p-0.5 border rounded-md text-xs italic pl-4"
+						className="w-full md:w-auto p-[3px] border rounded-md text-xs italic pl-4"
 						value={modifiedOptions.quantity}
 						onChange={(e) => handleDecreaseQuantity(e)}
 						min="1"
