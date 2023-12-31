@@ -35,15 +35,18 @@ const MenuCard = ({ shawarma }) => {
 		const { quantity, spiciness, ketchup, barma, hotdog, hotdogQuantity } =
 			modifiedOptions;
 
+		// Customize this string based on your preferences
 		const hotdogText =
 			hotdogQuantity === 1 ? "1 hotdog" : `${hotdogQuantity} hotdogs`;
 
-		// Customize this string based on your preferences
-		return `${quantity} ${
-			shawarma.name
-		} with ${spiciness} spice, ${ketchup} ketchup, ${barma} barma, ${
-			hotdog ? "with hotdog" : "without hotdog"
-		}${hotdog ? `( ${hotdogText})` : ""}`;
+		const hotdogPart = hotdog
+			? `with hotdog (${hotdogText})`
+			: "without hotdog";
+
+		const quantityText =
+			quantity > 1 ? `${quantity} shawarmas, each` : `${quantity} shawarma`;
+
+		return `${quantityText} with ${spiciness} spice, ${ketchup} ketchup, ${barma} barma, ${hotdogPart}`;
 	};
 
 	useEffect(() => {
