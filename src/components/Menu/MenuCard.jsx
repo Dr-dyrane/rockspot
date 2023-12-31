@@ -35,12 +35,15 @@ const MenuCard = ({ shawarma }) => {
 		const { quantity, spiciness, ketchup, barma, hotdog, hotdogQuantity } =
 			modifiedOptions;
 
+		const hotdogText =
+			hotdogQuantity === 1 ? "1 hotdog" : `${hotdogQuantity} hotdogs`;
+
 		// Customize this string based on your preferences
-		return `${quantity} ${shawarma.name} with ${spiciness} spice, ${
-			ketchup
-		} ketchup, ${barma} barma, ${
+		return `${quantity} ${
+			shawarma.name
+		} with ${spiciness} spice, ${ketchup} ketchup, ${barma} barma, ${
 			hotdog ? "with hotdog" : "without hotdog"
-		}${hotdog ? `( ${hotdogQuantity} hotdogs)` : ""}`;
+		}${hotdog ? `( ${hotdogText})` : ""}`;
 	};
 
 	useEffect(() => {
@@ -98,14 +101,15 @@ const MenuCard = ({ shawarma }) => {
 
 	const calculateModifiedPrice = () => {
 		let modifiedPrice = shawarma.price * modifiedOptions.quantity;
-	
+
 		if (modifiedOptions.hotdog) {
-            let hotdogQuantity = modifiedOptions.quantity * modifiedOptions.hotdogQuantity;
+			let hotdogQuantity =
+				modifiedOptions.quantity * modifiedOptions.hotdogQuantity;
 			modifiedPrice += hotdogQuantity * 500;
 		}
-	
+
 		return modifiedPrice;
-	  };
+	};
 
 	const handleMouseLeave = () => {
 		setTimeout(() => {
@@ -162,7 +166,9 @@ const MenuCard = ({ shawarma }) => {
 			<div className="p-4">
 				<div className="flex justify-between items-center">
 					<p className="text-md font-bold">{shawarma.name}</p>
-					<p className="text-md font-black text-indigo-700">~₦{calculateModifiedPrice()}</p>
+					<p className="text-md font-black text-indigo-700">
+						~₦{calculateModifiedPrice()}
+					</p>
 				</div>
 				{!isItemInCart && (
 					<p className="mt-2 text-indigo-700/75 italic text-xs">
