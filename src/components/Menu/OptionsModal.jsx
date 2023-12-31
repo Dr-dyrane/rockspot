@@ -56,7 +56,7 @@ const OptionsModal = ({
 		<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
 			<div
 				ref={modalRef}
-				className="bg-white/90 p-6 rounded-xl relative space-y-1"
+				className="bg-white/90 p-6 rounded-xl space-y-2 relative"
 			>
 				{/* Render the OptionsForm component */}
 				<OptionsForm
@@ -73,7 +73,7 @@ const OptionsModal = ({
 
 				{/* Repeat similar logic for other options */}
 				{/* ... (customize the form fields) */}
-				<div className="flex flex-row space-x-2 text-sm">
+				{/* <div className="flex flex-row space-x-2 text-sm">
 					<button
 						className="mt-2 border border-rose-500 hover:border-0 text-rose-600 hover:bg-rose-500 hover:text-white py-2 px-4 rounded-lg w-full"
 						onClick={handleToggleOptions}
@@ -86,7 +86,7 @@ const OptionsModal = ({
 					>
 						Save
 					</button>
-				</div>
+				</div> */}
 
 				<button
 					className="absolute top-0 right-2"
