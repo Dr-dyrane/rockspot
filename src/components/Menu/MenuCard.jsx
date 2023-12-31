@@ -37,10 +37,10 @@ const MenuCard = ({ shawarma }) => {
 
 		// Customize this string based on your preferences
 		return `${quantity} ${shawarma.name} with ${spiciness} spice, ${
-			ketchup === "normal" ? "ketchup" : "extra ketchup"
-		}, ${barma === "normal" ? "barma" : "extra barma"}, ${
+			ketchup
+		} ketchup, ${barma} barma, ${
 			hotdog ? "with hotdog" : "without hotdog"
-		}${hotdog ? `, ${hotdogQuantity} hotdogs` : ""}`;
+		}${hotdog ? `( ${hotdogQuantity} hotdogs)` : ""}`;
 	};
 
 	useEffect(() => {
@@ -100,7 +100,8 @@ const MenuCard = ({ shawarma }) => {
 		let modifiedPrice = shawarma.price * modifiedOptions.quantity;
 	
 		if (modifiedOptions.hotdog) {
-		  modifiedPrice += modifiedOptions.hotdogQuantity * 500;
+            let hotdogQuantity = modifiedOptions.quantity * modifiedOptions.hotdogQuantity;
+			modifiedPrice += hotdogQuantity * 500;
 		}
 	
 		return modifiedPrice;

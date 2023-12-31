@@ -25,7 +25,8 @@ const OptionsModal = ({
 		let modifiedPrice = shawarmaPrice * modifiedOptions.quantity;
 
 		if (modifiedOptions.hotdog) {
-			modifiedPrice += modifiedOptions.hotdogQuantity * 500;
+            let hotdogQuantity = modifiedOptions.quantity * modifiedOptions.hotdogQuantity;
+			modifiedPrice += hotdogQuantity * 500;
 		}
 
 		return modifiedPrice;
