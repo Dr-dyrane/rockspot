@@ -1,5 +1,5 @@
 // A new component for rendering the options modal
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { PiToggleRightFill } from "react-icons/pi";
 import OptionsForm from "./OptionsForm";
 
@@ -25,16 +25,39 @@ const OptionsModal = ({
 		let modifiedPrice = shawarmaPrice * modifiedOptions.quantity;
 
 		if (modifiedOptions.hotdog) {
-            let hotdogQuantity = modifiedOptions.quantity * modifiedOptions.hotdogQuantity;
+			let hotdogQuantity =
+				modifiedOptions.quantity * modifiedOptions.hotdogQuantity;
 			modifiedPrice += hotdogQuantity * 500;
 		}
 
 		return modifiedPrice;
 	};
 
+	const modalRef = useRef(null);
+
+	// Close the modal when clicking outside the div with bg-white/90
+	const handleCloseModal = (e) => {
+		if (!modalRef.current.contains(e.target)) {
+			handleToggleOptions();
+		}
+	};
+
+	useEffect(() => {
+		// Attach the event listener when the component mounts
+		document.addEventListener("mousedown", handleCloseModal);
+
+		// Detach the event listener when the component unmounts
+		return () => {
+			document.removeEventListener("mousedown", handleCloseModal);
+		};
+	}, [handleToggleOptions]);
+
 	return (
 		<div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-			<div className="bg-white/90 p-6 rounded-xl relative space-y-1">
+			<div
+				ref={modalRef}
+				className="bg-white/90 p-6 rounded-xl relative space-y-1"
+			>
 				{/* Render the OptionsForm component */}
 				<OptionsForm
 					modifiedOptions={modifiedOptions}
@@ -69,7 +92,11 @@ const OptionsModal = ({
 					className="absolute top-0 right-2"
 					onClick={handleToggleOptions}
 				>
-					<PiToggleRightFill size={36} color="" className="text-gray-500 hover:text-rose-500" />
+					<PiToggleRightFill
+						size={36}
+						color=""
+						className="text-gray-500 hover:text-rose-500"
+					/>
 				</button>
 			</div>
 		</div>
