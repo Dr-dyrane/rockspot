@@ -22,7 +22,7 @@ const OptionsForm = ({
 							Spiciness
 						</label>
 						<select
-							className="w-full  p-[3px] rounded-md text-xs italic"
+							className="w-full  p-[3px] rounded-md text-xs italic text-gray-500"
 							value={modifiedOptions.spiciness}
 							onChange={(e) =>
 								setModifiedOptions({
@@ -40,7 +40,7 @@ const OptionsForm = ({
 					<div className="flex flex-row items-center space-x-2">
 						<label className="text-indigo-700 text-xs font-bold">Ketchup</label>
 						<select
-							className="w-full  p-[3px] rounded-md text-xs italic"
+							className="w-full  p-[3px] rounded-md text-xs italic text-gray-500"
 							value={modifiedOptions.ketchup}
 							onChange={(e) =>
 								setModifiedOptions({
@@ -61,7 +61,7 @@ const OptionsForm = ({
 			<div className="flex flex-row items-center space-x-2">
 				<label className="text-indigo-700 text-xs font-bold">Barma</label>
 				<select
-					className="w-full p-[3px] rounded-md text-xs italic"
+					className="w-full p-[3px] rounded-md text-xs italic text-gray-500"
 					value={modifiedOptions.barma}
 					onChange={(e) =>
 						setModifiedOptions({
@@ -80,7 +80,7 @@ const OptionsForm = ({
 				<div className="flex flex-row items-center space-x-2">
 					<label className="text-indigo-700 text-xs font-bold">Hotdog</label>
 					<select
-						className="w-full  p-[3px] rounded-md text-xs italic"
+						className="w-full  p-[3px] rounded-md text-xs italic text-gray-500"
 						value={modifiedOptions.hotdog ? "true" : "false"}
 						onChange={(e) =>
 							setModifiedOptions({
@@ -100,7 +100,7 @@ const OptionsForm = ({
 						<div className="flex items-center">
 							<input
 								type="number"
-								className="w-full  p-[3px] rounded-md text-xs italic pl-4"
+								className="w-full  p-[3px] rounded-md text-xs italic text-gray-500 pl-4"
 								value={modifiedOptions.hotdogQuantity}
 								onChange={(e) =>
 									setModifiedOptions({
@@ -150,7 +150,7 @@ const OptionsForm = ({
 				<div className="flex items-center">
 					<input
 						type="number"
-						className="w-full  p-[3px] border rounded-md text-xs italic pl-4"
+						className="w-full  p-[3px] border rounded-md text-xs italic text-gray-500 pl-4"
 						value={modifiedOptions.quantity}
 						onChange={(e) => handleDecreaseQuantity(e)}
 						min="1"
